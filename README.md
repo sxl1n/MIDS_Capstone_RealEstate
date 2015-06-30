@@ -1,1 +1,1 @@
-# MIDS_Capstone_RealEstate
+# MIDS Capstone Project on Real Estate
