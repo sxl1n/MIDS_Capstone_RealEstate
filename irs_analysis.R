@@ -13,6 +13,8 @@ bay_homeprices <- merge(bayzips, ca_homeprices, by.x = "zip", by.y = "RegionName
 bay_irs <- merge(bayzips, ca_irs, by.x = "zip", by.y = "zipcode")
 bay_homeprices_irs <- merge(bay_homeprices, bay_irs, by = "zip")
 
+write.csv(bay_irs, file = "bay_12zpallagi.csv")
+
 #-- Correlation on percentage of returns with self employed retirement plan
 bay_homeprices_irs$ser_plan_pct <- bay_homeprices_irs$N03300 / bay_homeprices_irs$N1
 cor(bay_homeprices_irs$ser_plan_pct, bay_homeprices_irs$X2014.05, use="complete.obs")
