@@ -1,0 +1,521 @@
+#ZIP,Latitude,Longitude,City,County,Estimated_Population
+94002,37.5,-122.3,Belmont,San Mateo County,23092
+94005,37.68,-122.41,Brisbane,San Mateo County,4345
+94010,37.56,-122.37,Burlingame,San Mateo County,35172
+94011,37.57,-122.34,Burlingame,San Mateo County,973
+94013,37.7,-122.45,Daly City,San Mateo County,0
+94014,37.68,-122.43,Daly City,San Mateo County,36989
+94015,37.67,-122.47,Daly City,San Mateo County,49650
+94016,37.7,-122.45,Daly City,San Mateo County,0
+94017,37.69,-122.47,Daly City,San Mateo County,895
+94018,37.5,-122.47,El Granada,San Mateo County,3353
+94019,37.44,-122.41,Half Moon Bay,San Mateo County,12963
+94020,37.28,-122.24,La Honda,San Mateo County,1307
+94021,37.27,-122.26,Loma Mar,San Mateo County,0
+94022,37.36,-122.14,Los Altos,Santa Clara County,17620
+94023,37.37,-122.11,Los Altos,Santa Clara County,687
+94024,37.34,-122.11,Los Altos,Santa Clara County,20665
+94025,37.45,-122.17,Menlo Park,San Mateo County,32613
+94026,37.47,-122.18,Menlo Park,San Mateo County,1186
+94027,37.44,-122.2,Atherton,San Mateo County,6145
+94028,37.37,-122.21,Portola Valley,San Mateo County,6281
+94030,37.59,-122.4,Millbrae,San Mateo County,18869
+94035,37.41,-122.05,Mountain View,Santa Clara County,0
+94037,37.54,-122.5,Montara,San Mateo County,2482
+94038,37.51,-122.5,Moss Beach,San Mateo County,2425
+94039,37.39,-122.07,Mountain View,Santa Clara County,688
+94040,37.38,-122.08,Mountain View,Santa Clara County,26205
+94041,37.38,-122.07,Mountain View,Santa Clara County,10999
+94042,37.4,-122.08,Mountain View,Santa Clara County,764
+94043,37.41,-122.05,Mountain View,Santa Clara County,22824
+94044,37.6,-122.45,Pacifica,San Mateo County,32334
+94060,37.2,-122.3,Pescadero,San Mateo County,1410
+94061,37.46,-122.24,Redwood City,San Mateo County,27970
+94062,37.4,-122.29,Redwood City,San Mateo County,22552
+94063,37.49,-122.21,Redwood City,San Mateo County,21866
+94064,37.46,-122.25,Redwood City,San Mateo County,1200
+94065,37.53,-122.24,Redwood City,San Mateo County,10134
+94066,37.62,-122.43,San Bruno,San Mateo County,35122
+94070,37.49,-122.26,San Carlos,San Mateo County,26469
+94074,37.33,-122.34,San Gregorio,San Mateo County,0
+94080,37.65,-122.42,South San Francisco,San Mateo County,53242
+94083,37.64,-122.41,South San Francisco,San Mateo County,884
+94085,37.38,-122.01,Sunnyvale,Santa Clara County,16831
+94086,37.36,-122.02,Sunnyvale,Santa Clara County,37637
+94087,37.35,-122.03,Sunnyvale,Santa Clara County,46300
+94088,37.39,-122.03,Sunnyvale,Santa Clara County,1427
+94089,37.42,-122,Sunnyvale,Santa Clara County,16628
+94101,37.77,-122.41,San Francisco,San Francisco County,0
+94102,37.77,-122.41,San Francisco,San Francisco County,16733
+94103,37.77,-122.41,San Francisco,San Francisco County,16260
+94104,37.79,-122.4,San Francisco,San Francisco County,1959
+94105,37.78,-122.39,San Francisco,San Francisco County,5271
+94106,37.77,-122.41,San Francisco,San Francisco County,0
+94107,37.76,-122.39,San Francisco,San Francisco County,19741
+94108,37.79,-122.4,San Francisco,San Francisco County,10020
+94109,37.79,-122.42,San Francisco,San Francisco County,38763
+94110,37.74,-122.41,San Francisco,San Francisco County,53093
+94111,37.79,-122.39,San Francisco,San Francisco County,3905
+94112,37.72,-122.44,San Francisco,San Francisco County,64941
+94114,37.75,-122.43,San Francisco,San Francisco County,26380
+94115,37.78,-122.43,San Francisco,San Francisco County,24064
+94116,37.74,-122.48,San Francisco,San Francisco County,37668
+94117,37.76,-122.44,San Francisco,San Francisco County,27878
+94118,37.78,-122.46,San Francisco,San Francisco County,30630
+94119,37.78,-122.45,San Francisco,San Francisco County,1798
+94120,37.79,-122.4,San Francisco,San Francisco County,0
+94121,37.77,-122.49,San Francisco,San Francisco County,34786
+94122,37.76,-122.48,San Francisco,San Francisco County,46850
+94123,37.8,-122.43,San Francisco,San Francisco County,19132
+94124,37.73,-122.38,San Francisco,San Francisco County,24380
+94125,37.73,-122.38,San Francisco,San Francisco County,0
+94126,37.79,-122.39,San Francisco,San Francisco County,476
+94127,37.73,-122.45,San Francisco,San Francisco County,17250
+94128,37.61,-122.38,San Francisco,San Francisco County,683
+94129,37.79,-122.46,San Francisco,San Francisco County,2542
+94130,37.81,-122.36,San Francisco,San Francisco County,1387
+94131,37.74,-122.44,San Francisco,San Francisco County,22759
+94132,37.72,-122.48,San Francisco,San Francisco County,19425
+94133,37.8,-122.41,San Francisco,San Francisco County,20583
+94134,37.72,-122.41,San Francisco,San Francisco County,32983
+94135,37.77,-122.41,San Francisco,San Francisco County,0
+94136,37.77,-122.41,San Francisco,San Francisco County,0
+94137,37.79,-122.4,San Francisco,San Francisco County,0
+94138,37.79,-122.4,San Francisco,San Francisco County,0
+94139,37.79,-122.4,San Francisco,San Francisco County,0
+94140,37.75,-122.41,San Francisco,San Francisco County,625
+94141,37.76,-122.41,San Francisco,San Francisco County,414
+94142,37.78,-122.41,San Francisco,San Francisco County,1208
+94143,37.76,-122.45,San Francisco,San Francisco County,0
+94144,37.78,-122.46,San Francisco,San Francisco County,0
+94145,37.79,-122.4,San Francisco,San Francisco County,0
+94146,37.75,-122.43,San Francisco,San Francisco County,0
+94147,37.8,-122.43,San Francisco,San Francisco County,565
+94150,37.77,-122.41,San Francisco,San Francisco County,0
+94151,37.79,-122.39,San Francisco,San Francisco County,0
+94152,37.77,-122.41,San Francisco,San Francisco County,0
+94153,37.77,-122.41,San Francisco,San Francisco County,0
+94154,37.77,-122.41,San Francisco,San Francisco County,0
+94155,37.77,-122.41,San Francisco,San Francisco County,0
+94156,37.78,-122.4,San Francisco,San Francisco County,0
+94158,37.76,-122.39,San Francisco,San Francisco County,2706
+94159,37.78,-122.45,San Francisco,San Francisco County,479
+94160,37.71,-122.4,San Francisco,San Francisco County,0
+94161,37.79,-122.4,San Francisco,San Francisco County,0
+94162,37.78,-122.4,San Francisco,San Francisco County,0
+94163,37.78,-122.4,San Francisco,San Francisco County,0
+94164,37.78,-122.42,San Francisco,San Francisco County,467
+94171,37.77,-122.41,San Francisco,San Francisco County,0
+94172,37.76,-122.48,San Francisco,San Francisco County,0
+94175,37.77,-122.41,San Francisco,San Francisco County,0
+94177,37.79,-122.39,San Francisco,San Francisco County,0
+94188,37.74,-122.38,San Francisco,San Francisco County,787
+94199,37.77,-122.41,San Francisco,San Francisco County,0
+94301,37.44,-122.15,Palo Alto,Santa Clara County,14401
+94302,37.44,-122.15,Palo Alto,Santa Clara County,645
+94303,37.45,-122.1,Palo Alto,Santa Clara County,34099
+94304,37.37,-122.18,Palo Alto,Santa Clara County,2781
+94305,37.41,-122.17,Stanford,Santa Clara County,5084
+94306,37.41,-122.13,Palo Alto,Santa Clara County,22810
+94309,37.41,-122.16,Palo Alto,Santa Clara County,946
+94401,37.57,-122.32,San Mateo,San Mateo County,25273
+94402,37.52,-122.35,San Mateo,San Mateo County,21898
+94403,37.54,-122.3,San Mateo,San Mateo County,33305
+94404,37.55,-122.26,San Mateo,San Mateo County,29611
+94497,37.56,-122.32,San Mateo,San Mateo County,0
+94501,37.77,-122.27,Alameda,Alameda County,48387
+94502,37.73,-122.24,Alameda,Alameda County,12235
+94503,38.18,-122.25,American Canyon,Napa County,15188
+94505,37.86,-121.64,Discovery Bay,Contra Costa County,9925
+94506,37.78,-121.88,Danville,Contra Costa County,20743
+94507,37.84,-121.97,Alamo,Contra Costa County,14041
+94508,38.57,-122.44,Angwin,Napa County,2362
+94509,37.99,-121.81,Antioch,Contra Costa County,45524
+94510,38.11,-122.13,Benicia,Solano County,23802
+94511,38.07,-121.62,Bethel Island,Contra Costa County,1583
+94512,38.12,-121.81,Birds Landing,Solano County,0
+94513,37.87,-121.68,Brentwood,Contra Costa County,42684
+94514,37.85,-121.62,Byron,Contra Costa County,1729
+94515,38.62,-122.61,Calistoga,Napa County,5845
+94516,37.82,-122.16,Canyon,Contra Costa County,0
+94517,37.88,-121.84,Clayton,Contra Costa County,11352
+94518,37.95,-122.02,Concord,Contra Costa County,21464
+94519,37.99,-122,Concord,Contra Costa County,14804
+94520,38,-122.03,Concord,Contra Costa County,26131
+94521,37.97,-121.96,Concord,Contra Costa County,34763
+94522,38.01,-122.02,Concord,Contra Costa County,498
+94523,37.95,-122.07,Pleasant Hill,Contra Costa County,27947
+94524,37.97,-122.05,Concord,Contra Costa County,720
+94525,38.04,-122.23,Crockett,Contra Costa County,2510
+94526,37.81,-121.97,Danville,Contra Costa County,28860
+94527,37.97,-122.05,Concord,Contra Costa County,0
+94528,37.83,-121.95,Diablo,Contra Costa County,1028
+94529,37.87,-122.04,Concord,Contra Costa County,0
+94530,37.91,-122.3,El Cerrito,Contra Costa County,21140
+94531,37.96,-121.76,Antioch,Contra Costa County,31488
+94533,38.28,-122,Fairfield,Solano County,51145
+94534,38.23,-122.12,Fairfield,Solano County,30105
+94535,38.26,-121.93,Travis Afb,Solano County,4193
+94536,37.56,-121.98,Fremont,Alameda County,55569
+94537,37.55,-122.01,Fremont,Alameda County,960
+94538,37.5,-121.96,Fremont,Alameda County,49149
+94539,37.51,-121.89,Fremont,Alameda County,44440
+94540,37.65,-122.09,Hayward,Alameda County,819
+94541,37.67,-122.08,Hayward,Alameda County,44424
+94542,37.65,-122.04,Hayward,Alameda County,9246
+94543,37.67,-122.08,Hayward,Alameda County,0
+94544,37.63,-122.04,Hayward,Alameda County,55190
+94545,37.62,-122.11,Hayward,Alameda County,24681
+94546,37.7,-122.08,Castro Valley,Alameda County,35351
+94547,38.01,-122.25,Hercules,Contra Costa County,20527
+94548,37.97,-121.65,Knightsen,Contra Costa County,754
+94549,37.9,-122.11,Lafayette,Contra Costa County,24865
+94550,37.68,-121.75,Livermore,Alameda County,40153
+94551,37.77,-121.75,Livermore,Alameda County,32376
+94552,37.69,-122.01,Castro Valley,Alameda County,13039
+94553,37.98,-122.15,Martinez,Contra Costa County,38654
+94555,37.55,-122.07,Fremont,Alameda County,28222
+94556,37.83,-122.1,Moraga,Contra Costa County,13735
+94557,37.62,-122.1,Hayward,Alameda County,0
+94558,38.55,-122.15,Napa,Napa County,54496
+94559,38.23,-122.29,Napa,Napa County,21017
+94560,37.51,-122.04,Newark,Alameda County,35570
+94561,37.99,-121.68,Oakley,Contra Costa County,27185
+94562,38.42,-122.4,Oakville,Napa County,0
+94563,37.89,-122.19,Orinda,Contra Costa County,17132
+94564,37.99,-122.27,Pinole,Contra Costa County,15898
+94565,38,-121.83,Pittsburg,Contra Costa County,61968
+94566,37.65,-121.85,Pleasanton,Alameda County,37329
+94567,38.67,-122.44,Pope Valley,Napa County,537
+94568,37.71,-121.91,Dublin,Alameda County,34457
+94569,38.03,-122.19,Port Costa,Contra Costa County,0
+94570,38.11,-122.13,Moraga,Contra Costa County,0
+94571,38.18,-121.73,Rio Vista,Solano County,6699
+94572,38.03,-122.23,Rodeo,Contra Costa County,6725
+94573,38.45,-122.41,Rutherford,Napa County,771
+94574,38.55,-122.39,Saint Helena,Napa County,7143
+94575,37.84,-122.12,Moraga,Contra Costa County,0
+94576,38.55,-122.47,Deer Park,Napa County,0
+94577,37.71,-122.16,San Leandro,Alameda County,37421
+94578,37.7,-122.12,San Leandro,Alameda County,28085
+94579,37.68,-122.15,San Leandro,Alameda County,17524
+94580,37.68,-122.13,San Lorenzo,Alameda County,22564
+94581,38.29,-122.28,Napa,Napa County,1475
+94582,37.76,-121.93,San Ramon,Contra Costa County,29033
+94583,37.78,-121.99,San Ramon,Contra Costa County,40007
+94585,38.16,-121.93,Suisun City,Solano County,22796
+94586,37.56,-121.84,Sunol,Alameda County,937
+94587,37.59,-122.06,Union City,Alameda County,57184
+94588,37.67,-121.93,Pleasanton,Alameda County,28137
+94589,38.13,-122.25,Vallejo,Solano County,22142
+94590,38.09,-122.25,Vallejo,Solano County,25368
+94591,38.11,-122.2,Vallejo,Solano County,42764
+94592,38.11,-122.29,Vallejo,Solano County,553
+94595,37.86,-122.07,Walnut Creek,Contra Costa County,14774
+94596,37.89,-122.03,Walnut Creek,Contra Costa County,18125
+94597,37.91,-122.07,Walnut Creek,Contra Costa County,16977
+94598,37.91,-122.01,Walnut Creek,Contra Costa County,23862
+94599,38.41,-122.36,Yountville,Napa County,2713
+94601,37.77,-122.21,Oakland,Alameda County,33456
+94602,37.8,-122.21,Oakland,Alameda County,22480
+94603,37.73,-122.17,Oakland,Alameda County,21407
+94604,37.8,-122.26,Oakland,Alameda County,1423
+94605,37.75,-122.13,Oakland,Alameda County,28141
+94606,37.78,-122.24,Oakland,Alameda County,25875
+94607,37.81,-122.3,Oakland,Alameda County,14897
+94608,37.83,-122.29,Emeryville,Alameda County,18425
+94609,37.83,-122.26,Oakland,Alameda County,14227
+94610,37.81,-122.24,Oakland,Alameda County,24162
+94611,37.83,-122.22,Oakland,Alameda County,32155
+94612,37.8,-122.27,Oakland,Alameda County,8710
+94613,37.78,-122.18,Oakland,Alameda County,0
+94614,37.72,-122.2,Oakland,Alameda County,0
+94615,37.8,-122.29,Oakland,Alameda County,0
+94617,37.75,-122.14,Oakland,Alameda County,0
+94618,37.84,-122.23,Oakland,Alameda County,13888
+94619,37.78,-122.12,Oakland,Alameda County,18775
+94620,37.77,-122.21,Piedmont,Alameda County,474
+94621,37.73,-122.2,Oakland,Alameda County,18680
+94622,37.74,-122.19,Oakland,Alameda County,0
+94623,37.8,-122.29,Oakland,Alameda County,420
+94624,37.74,-122.17,Oakland,Alameda County,0
+94625,37.8,-122.31,Oakland,Alameda County,0
+94649,37.8,-122.26,Oakland,Alameda County,0
+94659,37.81,-122.26,Oakland,Alameda County,0
+94660,37.79,-122.27,Oakland,Alameda County,0
+94661,37.82,-122.2,Oakland,Alameda County,0
+94662,37.84,-122.29,Emeryville,Alameda County,557
+94666,37.8,-122.26,Oakland,Alameda County,0
+94701,37.86,-122.27,Berkeley,Alameda County,359
+94702,37.86,-122.28,Berkeley,Alameda County,12254
+94703,37.86,-122.27,Berkeley,Alameda County,13904
+94704,37.86,-122.25,Berkeley,Alameda County,6826
+94705,37.86,-122.24,Berkeley,Alameda County,10879
+94706,37.88,-122.29,Albany,Alameda County,15637
+94707,37.9,-122.28,Berkeley,Alameda County,11820
+94708,37.9,-122.26,Berkeley,Alameda County,10062
+94709,37.87,-122.26,Berkeley,Alameda County,6899
+94710,37.87,-122.3,Berkeley,Alameda County,5142
+94712,37.86,-122.26,Berkeley,Alameda County,0
+94720,37.86,-122.25,Berkeley,Alameda County,536
+94801,37.96,-122.38,Richmond,Contra Costa County,18180
+94802,37.93,-122.35,Richmond,Contra Costa County,573
+94803,37.95,-122.26,El Sobrante,Contra Costa County,20102
+94804,37.92,-122.34,Richmond,Contra Costa County,26686
+94805,37.94,-122.31,Richmond,Contra Costa County,10551
+94806,37.98,-122.33,San Pablo,Contra Costa County,43290
+94807,37.92,-122.35,Richmond,Contra Costa County,0
+94808,37.93,-122.34,Richmond,Contra Costa County,0
+94820,37.97,-122.29,El Sobrante,Contra Costa County,661
+94850,37.94,-122.38,Richmond,Contra Costa County,0
+94901,37.97,-122.5,San Rafael,Marin County,33561
+94903,38.02,-122.54,San Rafael,Marin County,23974
+94904,37.94,-122.56,Greenbrae,Marin County,10158
+94912,37.97,-122.5,San Rafael,Marin County,1403
+94913,38.02,-122.54,San Rafael,Marin County,0
+94914,37.94,-122.53,Kentfield,Marin County,0
+94915,37.95,-122.5,San Rafael,Marin County,710
+94920,37.89,-122.47,Belvedere Tiburon,Marin County,10900
+94922,38.33,-122.97,Bodega,Sonoma County,0
+94923,38.35,-123.06,Bodega Bay,Sonoma County,1169
+94924,37.94,-122.73,Bolinas,Marin County,1151
+94925,37.92,-122.51,Corte Madera,Marin County,8134
+94926,38.32,-122.7,Rohnert Park,Sonoma County,0
+94927,38.34,-122.69,Rohnert Park,Sonoma County,678
+94928,38.34,-122.7,Rohnert Park,Sonoma County,30371
+94929,38.24,-122.95,Dillon Beach,Marin County,0
+94930,37.98,-122.6,Fairfax,Marin County,6948
+94931,38.31,-122.7,Cotati,Sonoma County,7260
+94933,38.01,-122.69,Forest Knolls,Marin County,771
+94937,38.11,-122.92,Inverness,Marin County,867
+94938,38.03,-122.7,Lagunitas,Marin County,479
+94939,37.93,-122.53,Larkspur,Marin County,5652
+94940,38.16,-122.84,Marshall,Marin County,0
+94941,37.89,-122.56,Mill Valley,Marin County,25742
+94942,37.9,-122.52,Mill Valley,Marin County,977
+94945,38.13,-122.56,Novato,Marin County,14293
+94946,38.07,-122.68,Nicasio,Marin County,551
+94947,38.1,-122.63,Novato,Marin County,19940
+94948,38.13,-122.56,Novato,Marin County,1474
+94949,38.06,-122.54,Novato,Marin County,14246
+94950,38.02,-122.75,Olema,Marin County,0
+94951,38.31,-122.64,Penngrove,Sonoma County,3579
+94952,38.21,-122.76,Petaluma,Sonoma County,25794
+94953,38.26,-122.63,Petaluma,Sonoma County,788
+94954,38.23,-122.56,Petaluma,Sonoma County,31071
+94955,38.22,-122.55,Petaluma,Sonoma County,564
+94956,38.07,-122.86,Point Reyes Station,Marin County,1406
+94957,37.96,-122.55,Ross,Marin County,2219
+94960,37.99,-122.58,San Anselmo,Marin County,12561
+94963,38.02,-122.63,San Geronimo,Marin County,485
+94964,37.94,-122.49,San Quentin,Marin County,0
+94965,37.84,-122.53,Sausalito,Marin County,9393
+94966,37.86,-122.49,Sausalito,Marin County,831
+94970,37.91,-122.66,Stinson Beach,Marin County,583
+94971,38.24,-122.9,Tomales,Marin County,0
+94972,38.29,-122.94,Valley Ford,Sonoma County,0
+94973,38,-122.64,Woodacre,Marin County,1339
+94974,37.95,-122.54,San Quentin,Marin County,0
+94975,38.32,-122.64,Petaluma,Sonoma County,747
+94976,37.92,-122.52,Corte Madera,Marin County,365
+94977,37.93,-122.53,Larkspur,Marin County,381
+94978,37.98,-122.58,Fairfax,Marin County,526
+94979,37.97,-122.56,San Anselmo,Marin County,493
+94998,38.1,-122.57,Novato,Marin County,0
+94999,38.32,-122.64,Petaluma,Sonoma County,0
+95001,36.97,-121.89,Aptos,Santa Cruz County,1526
+95002,37.44,-121.99,Alviso,Santa Clara County,1749
+95003,37,-121.87,Aptos,Santa Cruz County,18954
+95005,37.1,-122.08,Ben Lomond,Santa Cruz County,5137
+95006,37.16,-122.15,Boulder Creek,Santa Cruz County,7182
+95007,37.1,-122.11,Brookdale,Santa Cruz County,647
+95008,37.28,-121.95,Campbell,Santa Clara County,36168
+95009,37.28,-121.94,Campbell,Santa Clara County,497
+95010,36.97,-121.95,Capitola,Santa Cruz County,7918
+95011,37.29,-121.95,Campbell,Santa Clara County,1102
+95013,37.2,-121.72,Coyote,Santa Clara County,0
+95014,37.3,-122.09,Cupertino,Santa Clara County,51349
+95015,37.32,-122.05,Cupertino,Santa Clara County,1709
+95017,37.09,-122.24,Davenport,Santa Cruz County,718
+95018,37.08,-122.05,Felton,Santa Cruz County,6114
+95019,36.93,-121.78,Freedom,Santa Cruz County,7068
+95020,37.06,-121.55,Gilroy,Santa Clara County,41952
+95021,37.01,-121.55,Gilroy,Santa Clara County,2725
+95023,36.89,-121.24,Hollister,San Benito County,35971
+95024,36.84,-121.39,Hollister,San Benito County,2447
+95026,37.15,-121.98,Holy City,Santa Clara County,0
+95030,37.22,-121.99,Los Gatos,Santa Clara County,11508
+95031,37.12,-121.93,Los Gatos,Santa Clara County,1445
+95032,37.23,-121.95,Los Gatos,Santa Clara County,21990
+95033,37.13,-121.94,Los Gatos,Santa Clara County,7196
+95035,37.44,-121.87,Milpitas,Santa Clara County,54420
+95036,37.24,-121.97,Milpitas,Santa Clara County,1343
+95037,37.17,-121.65,Morgan Hill,Santa Clara County,35452
+95038,37.08,-121.61,Morgan Hill,Santa Clara County,1884
+95041,37.05,-122.05,Mount Hermon,Santa Cruz County,575
+95042,37.17,-121.82,New Almaden,Santa Clara County,0
+95043,36.53,-120.96,Paicines,San Benito County,494
+95044,37.15,-121.98,Redwood Estates,Santa Clara County,0
+95045,36.83,-121.51,San Juan Bautista,San Benito County,3345
+95046,37.1,-121.6,San Martin,Santa Clara County,5514
+95050,37.34,-121.95,Santa Clara,Santa Clara County,26714
+95051,37.35,-121.98,Santa Clara,Santa Clara County,45397
+95052,37.35,-121.95,Santa Clara,Santa Clara County,580
+95053,37.34,-121.93,Santa Clara,Santa Clara County,0
+95054,37.39,-121.96,Santa Clara,Santa Clara County,20797
+95055,37.33,-121.98,Santa Clara,Santa Clara County,1075
+95056,37.4,-121.96,Santa Clara,Santa Clara County,795
+95060,37.04,-122.1,Santa Cruz,Santa Cruz County,29968
+95061,36.97,-122.02,Santa Cruz,Santa Cruz County,1461
+95062,36.97,-121.98,Santa Cruz,Santa Cruz County,26530
+95063,36.97,-122,Santa Cruz,Santa Cruz County,1484
+95064,36.98,-122.06,Santa Cruz,Santa Cruz County,890
+95065,37.03,-121.98,Santa Cruz,Santa Cruz County,6525
+95066,37.06,-122.01,Scotts Valley,Santa Cruz County,11926
+95067,36.97,-122.03,Scotts Valley,Santa Cruz County,855
+95070,37.25,-122.06,Saratoga,Santa Clara County,29525
+95071,37.25,-122.03,Saratoga,Santa Clara County,0
+95073,37.02,-121.94,Soquel,Santa Cruz County,9169
+95075,36.77,-121.29,Tres Pinos,San Benito County,603
+95076,36.95,-121.72,Watsonville,Santa Cruz County,63437
+95077,36.91,-121.75,Watsonville,Santa Cruz County,3861
+95101,37.38,-121.89,San Jose,Santa Clara County,0
+95103,37.33,-121.89,San Jose,Santa Clara County,0
+95106,37.33,-121.89,San Jose,Santa Clara County,0
+95108,37.33,-122.08,San Jose,Santa Clara County,0
+95109,37.33,-121.89,San Jose,Santa Clara County,873
+95110,37.34,-121.9,San Jose,Santa Clara County,12621
+95111,37.28,-121.83,San Jose,Santa Clara County,43578
+95112,37.34,-121.88,San Jose,Santa Clara County,34111
+95113,37.33,-121.89,San Jose,Santa Clara County,1049
+95115,37.3,-121.89,San Jose,Santa Clara County,0
+95116,37.35,-121.85,San Jose,Santa Clara County,35357
+95117,37.31,-121.96,San Jose,Santa Clara County,22030
+95118,37.25,-121.88,San Jose,Santa Clara County,26249
+95119,37.22,-121.78,San Jose,Santa Clara County,8171
+95120,37.19,-121.83,San Jose,Santa Clara County,33486
+95121,37.3,-121.8,San Jose,Santa Clara County,30427
+95122,37.33,-121.83,San Jose,Santa Clara County,41936
+95123,37.23,-121.82,San Jose,Santa Clara County,50481
+95124,37.25,-121.92,San Jose,Santa Clara County,39234
+95125,37.29,-121.88,San Jose,Santa Clara County,41048
+95126,37.32,-121.91,San Jose,Santa Clara County,23076
+95127,37.37,-121.75,San Jose,Santa Clara County,46641
+95128,37.31,-121.93,San Jose,Santa Clara County,25327
+95129,37.3,-122,San Jose,Santa Clara County,32839
+95130,37.28,-121.98,San Jose,Santa Clara County,10841
+95131,37.38,-121.9,San Jose,Santa Clara County,24403
+95132,37.42,-121.77,San Jose,Santa Clara County,34344
+95133,37.37,-121.86,San Jose,Santa Clara County,20337
+95134,37.42,-121.94,San Jose,Santa Clara County,12670
+95135,37.25,-121.67,San Jose,Santa Clara County,17221
+95136,37.27,-121.84,San Jose,Santa Clara County,35078
+95138,37.24,-121.73,San Jose,Santa Clara County,15421
+95139,37.21,-121.75,San Jose,Santa Clara County,5634
+95140,37.36,-121.67,Mount Hamilton,Santa Clara County,0
+95141,37.17,-121.75,San Jose,Santa Clara County,0
+95148,37.33,-121.77,San Jose,Santa Clara County,37541
+95150,37.29,-121.91,San Jose,Santa Clara County,1217
+95151,37.29,-121.78,San Jose,Santa Clara County,1597
+95152,37.41,-121.82,San Jose,Santa Clara County,448
+95153,37.24,-121.84,San Jose,Santa Clara County,744
+95154,37.26,-121.91,San Jose,Santa Clara County,491
+95155,37.31,-121.9,San Jose,Santa Clara County,0
+95156,37.35,-121.84,San Jose,Santa Clara County,790
+95157,37.3,-121.97,San Jose,Santa Clara County,597
+95158,37.26,-121.87,San Jose,Santa Clara County,556
+95159,37.31,-121.93,San Jose,Santa Clara County,1393
+95160,37.21,-121.86,San Jose,Santa Clara County,424
+95161,37.38,-121.89,San Jose,Santa Clara County,1275
+95164,37.39,-121.92,San Jose,Santa Clara County,819
+95170,37.31,-122,San Jose,Santa Clara County,0
+95172,37.33,-121.88,San Jose,Santa Clara County,0
+95173,37.33,-121.89,San Jose,Santa Clara County,833
+95190,37.37,-121.9,San Jose,Santa Clara County,0
+95191,37.32,-121.91,San Jose,Santa Clara County,0
+95192,37.34,-121.89,San Jose,Santa Clara County,0
+95193,37.24,-121.83,San Jose,Santa Clara County,0
+95194,37.34,-121.88,San Jose,Santa Clara County,0
+95196,37.33,-121.89,San Jose,Santa Clara County,0
+95201,37.9,-121.22,Stockton,San Joaquin County,951
+95202,37.95,-121.28,Stockton,San Joaquin County,3036
+95203,37.95,-121.32,Stockton,San Joaquin County,9689
+95204,37.97,-121.32,Stockton,San Joaquin County,19838
+95205,37.96,-121.26,Stockton,San Joaquin County,24135
+95206,37.9,-121.4,Stockton,San Joaquin County,44874
+95207,38,-121.32,Stockton,San Joaquin County,31668
+95208,37.95,-121.43,Stockton,San Joaquin County,781
+95209,38.04,-121.35,Stockton,San Joaquin County,29459
+95210,38.02,-121.3,Stockton,San Joaquin County,25741
+95211,37.98,-121.3,Stockton,San Joaquin County,0
+95212,38.04,-121.2,Stockton,San Joaquin County,18519
+95213,37.95,-121.43,Stockton,San Joaquin County,899
+95215,37.95,-121.12,Stockton,San Joaquin County,15614
+95219,38.01,-121.38,Stockton,San Joaquin County,21236
+95220,38.19,-121.25,Acampo,San Joaquin County,5450
+95227,38.21,-121.03,Clements,San Joaquin County,888
+95231,37.86,-121.29,French Camp,San Joaquin County,3106
+95234,37.93,-121.42,Holt,San Joaquin County,0
+95236,38.05,-121.03,Linden,San Joaquin County,4764
+95237,38.17,-121.13,Lockeford,San Joaquin County,3187
+95240,38.11,-121.16,Lodi,San Joaquin County,30585
+95241,38.15,-121.3,Lodi,San Joaquin County,2197
+95242,38.13,-121.39,Lodi,San Joaquin County,20643
+95253,38.14,-121.2,Victor,San Joaquin County,741
+95258,38.16,-121.29,Woodbridge,San Joaquin County,4461
+95267,38,-121.31,Stockton,San Joaquin County,723
+95269,38.01,-121.32,Stockton,San Joaquin County,1714
+95296,38.02,-121.3,Stockton,San Joaquin County,0
+95297,37.96,-121.3,Stockton,San Joaquin County,0
+95304,37.69,-121.39,Tracy,San Joaquin County,8986
+95320,37.83,-121.03,Escalon,San Joaquin County,10192
+95330,37.82,-121.29,Lathrop,San Joaquin County,13248
+95336,37.83,-121.18,Manteca,San Joaquin County,33056
+95337,37.73,-121.24,Manteca,San Joaquin County,22663
+95366,37.75,-121.12,Ripon,San Joaquin County,13598
+95376,37.73,-121.42,Tracy,San Joaquin County,38068
+95377,37.62,-121.45,Tracy,San Joaquin County,23164
+95378,37.8,-121.55,Tracy,San Joaquin County,1002
+95391,37.76,-121.63,Tracy,San Joaquin County,7031
+95401,38.44,-122.78,Santa Rosa,Sonoma County,26704
+95402,38.47,-122.6,Santa Rosa,Sonoma County,3300
+95403,38.5,-122.76,Santa Rosa,Sonoma County,33257
+95404,38.45,-122.68,Santa Rosa,Sonoma County,29799
+95405,38.43,-122.67,Santa Rosa,Sonoma County,18155
+95406,38.45,-122.72,Santa Rosa,Sonoma County,849
+95407,38.39,-122.75,Santa Rosa,Sonoma County,26764
+95409,38.45,-122.59,Santa Rosa,Sonoma County,21790
+95412,38.71,-123.33,Annapolis,Sonoma County,0
+95416,38.31,-122.48,Boyes Hot Springs,Sonoma County,2731
+95419,38.42,-122.95,Camp Meeker,Sonoma County,0
+95421,38.56,-123.2,Cazadero,Sonoma County,1034
+95425,38.78,-122.92,Cloverdale,Sonoma County,8841
+95430,38.44,-123.05,Duncans Mills,Sonoma County,0
+95431,38.34,-122.51,Eldridge,Sonoma County,0
+95433,38.29,-122.48,El Verano,Sonoma County,873
+95436,38.48,-122.9,Forestville,Sonoma County,4585
+95439,38.49,-122.77,Fulton,Sonoma County,838
+95441,38.74,-123.13,Geyserville,Sonoma County,2362
+95442,38.38,-122.52,Glen Ellen,Sonoma County,2862
+95444,38.43,-122.86,Graton,Sonoma County,1154
+95446,38.52,-123.01,Guerneville,Sonoma County,3558
+95448,38.63,-122.89,Healdsburg,Sonoma County,14838
+95450,38.51,-123.21,Jenner,Sonoma County,0
+95452,38.42,-122.54,Kenwood,Sonoma County,1581
+95462,38.45,-123.01,Monte Rio,Sonoma County,836
+95465,38.41,-123.01,Occidental,Sonoma County,1774
+95471,38.52,-122.97,Rio Nido,Sonoma County,0
+95472,38.4,-122.86,Sebastopol,Sonoma County,21680
+95473,38.4,-122.82,Sebastopol,Sonoma County,1470
+95476,38.24,-122.46,Sonoma,Sonoma County,24893
+95480,38.64,-123.37,Stewarts Point,Sonoma County,0
+95486,38.47,-123.03,Villa Grande,Sonoma County,0
+95487,38.25,-122.45,Vineburg,Sonoma County,470
+95492,38.53,-122.81,Windsor,Sonoma County,23814
+95497,38.7,-123.44,The Sea Ranch,Sonoma County,411
+95620,38.39,-121.81,Dixon,Solano County,16600
+95625,38.35,-121.9,Elmira,Solano County,0
+95686,38.17,-121.52,Thornton,San Joaquin County,922
+95687,38.35,-121.93,Vacaville,Solano County,45910
+95688,38.41,-122.01,Vacaville,Solano County,28085
+95696,38.31,-121.92,Vacaville,Solano County,2007
