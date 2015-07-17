@@ -29,8 +29,11 @@ zbp2013 <- read.csv("desc_est_zbp13detail.csv")
 
 #-- NOTE: All merges are left join on the master bay area zip list to ensure no zip code with data is excluded
 
+#-- Merge avg median home prices
+merged <- merge(bayzips[c("zip")], bay_avg_homeprices, by = "zip", all.x = T)
+
 #-- Merge in Sharon's data
-merged <- merge(bay_avg_homeprices, subset(sharon, select = -c(Median.House.Price..May.2015.)), by.x = "zip", by.y = "zip", all.x = T)
+merged <- merge(merged, subset(sharon, select = -c(Median.House.Price..May.2015.)), by.x = "zip", by.y = "zip", all.x = T)
 
 #-- Merge in Thiyagu's data
 merged <- merge(merged, crime_index, by = "zip", all.x = T)
