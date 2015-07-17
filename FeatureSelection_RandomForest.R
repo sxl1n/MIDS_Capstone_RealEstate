@@ -1,14 +1,6 @@
 setwd("C:\\Users\\jheckman\\OneDrive\\Documents\\School\\W210 Capstone\\Project\\Data")
 
 dat = read.csv('merged_data.csv')
-summary(dat)
-
-#-- rename income variable
-names(dat)[names(dat)=="Total..Estimate..INCOME.IN.THE.PAST.12.MONTHS..IN.2012.INFLATION.ADJUSTED.DOLLARS....With.earnings...Mean.earnings..dollars..x"] <- "income"
-
-#-- unemployment rate var is factor, change to numeric
-dat$unemployment_rate <- as.numeric(levels(dat$Total..Estimate..EMPLOYMENT.STATUS...Unemployment.rate))[dat$Total..Estimate..EMPLOYMENT.STATUS...Unemployment.rate]
-dat <-  subset(dat, select = -c(zip,Total..Estimate..EMPLOYMENT.STATUS...Unemployment.rate))
 
 ####---- Random Forest
 library(randomForest)
@@ -16,47 +8,51 @@ train_size <- floor(0.75 * nrow(dat))
 train_i <- sample(seq_len(nrow(dat)), size = train_size)
 
 train <- dat[train_i,]
-test <- dat_complete[-train_i,]
+test <- dat[-train_i,]
 
-colnames(dat)
+train <- dat
 
-#-- Removed columns: income, unemployment_rate
-cols <- c('median_home_price_2015_april',
-          'PM2.5',
-          'Coffeeshops',
-          'AVERAGE.of.Temperature..1981.2010.Annual.Average..in.F',
-          'crime_index',
-          'female_labor',
-          'renter_occupied',
-          'Accommodation_and_Food_Services',
-          'Agriculture._Forestry._Fishing_and_Hunting',
-          'Construction',
-          'Finance_and_Insurance',
-          'Industries_not_classified',
-          'Management_of_Companies_and_Enterprises',
-          'Mining._Quarrying._and_Oil_and_Gas_Extraction',
-          'Professional._Scientific._and_Technical_Services',
-          'Retail_Trade',
-          'Transportation_and_Warehousing',
-          'Wholesale_Trade',
-          'Ozone',
-          'Parks',
-          'Restaurants',
-          'AVERAGE.of.Precipitation..1981.2010.Annual.Total..in.Inches',
-          'earthquake_index',
-          'pop_growth_rate',
-          'Administrative_and_Support_and_Waste_Management_and_Remediation_Services',
-          'Arts._Entertainment._and_Recreation',
-          'Educational_Services',
-          'Health_Care_and_Social_Assistance',
-          'Information',
-          'Manufacturing',
-          'Other_Services_.except_Public_Administration.',
-          'Real_Estate_and_Rental_and_Leasing',
-          'Total_for_all_sectors',
-          'Utilities')
-
-rf <- randomForest(median_home_price_2015_april ~ ., data = train[,cols], na.action = na.omit, ntree=1500, mtry=20, keep.forest = F, importance = T)
+rf <- randomForest(Avg_Median_Home_Price ~ ., data = train, na.action = na.omit, ntree=2000, mtry=700, keep.forest = F, importance = T)
 feature_importance <- data.frame(importance(rf))
 feature_importance$names <- rownames(feature_importance)
 feature_importance <- feature_importance[order(-feature_importance$X.IncMSE),]
+
+write.csv(feature_importance, file = "rfr_feature_importances.csv", row.names = F)
+#--------------------------------------------------------------------------------------
+
+#-- ad hoc analysis below
+result <- vector("list",1)
+for (col in cols) {
+  result[col] <- cor(dat$income, dat[,col], use="complete.obs")
+}
+result
+
+
+hist(dat$PM2.5)
+hist(dat$Utilities)
+hist(dat$AVERAGE.of.Temperature..1981.2010.Annual.Average..in.F)
+hist(dat$Parks)
+hist(dat$Coffeeshops)
+hist(dat$Restaurants)
+stem(dat$Restaurants)
+stem(dat$Parks)
+plot(dat$Parks, dat$median_home_price_2015_april) #-- parks --> What's with the 40's?
+plot(dat$income, dat$median_home_price_2015_april) #-- income / price is linear
+plot(dat$Coffeeshops, dat$median_home_price_2015_april)
+plot(dat$Restaurants, dat$median_home_price_2015_april)
+plot(dat$Accommodation_and_Food_Services, dat$median_home_price_2015_april)
+plot(dat$pop_growth_rate, dat$median_home_price_2015_april)
+plot(dat$AVERAGE.of.Temperature..1981.2010.Annual.Average..in.F, dat$median_home_price_2015_april)
+
+dat[dat$Parks == 40,]
+summary(dat$Parks)
+
+# Scatterplot Matrices from the glus Package 
+library(gclus)
+dat.r <- abs(cor(dat)) # get correlations
+dta.col <- dmat.color(dat.r) # get colors
+# reorder variables so those with highest correlation
+# are closest to the diagonal
+dat.o <- order.single(dat.r) 
+cpairs(dat, dat.o, panel.colors=dat.col, gap=.5,
+       main="Variables Ordered and Colored by Correlation" )
