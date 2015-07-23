@@ -55,8 +55,7 @@ for i in gsid:
 
 
 for key in overallSchoolRate.keys():
-  print str(overallSchoolRate[key]['gsId']) + ',' + str(overallSchoolRate[key]['score']) + ',' + str(overallSchoolRate[key]['year']) + ',' + str(overallSchoolRate[key]['scale'])
-
+  print str(overallSchoolRate[key]['gsId']) + ',' + str(overallSchoolRate[key]['gsRating']) 
 
 
 
