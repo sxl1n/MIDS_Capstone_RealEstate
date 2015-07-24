@@ -38,3 +38,8 @@ for i in zip:
     zipZillow[attribute.find('name').text] = zipData
     zipZillow['forSale'] = links.find('forSale').text
   overallZillow[str(i)] = zipZillow
+  print i
+
+
+for key in overallZillow.keys():
+  print str(key) + ',' +  str(overallZillow[key]['Median List Price']['value']) + ',' + str(overallZillow[key]['Median Sale Price']['value']) + ',' + str(overallZillow[key]['Median Single Family Home Value'].get('value', 0)) + ',' + str(overallZillow[key]['Median 2-Bedroom Home Value'].get('value', 0)) + ',' + str(overallZillow[key]['Median 3-Bedroom Home Value'].get('value', 0)) + ',' + str(overallZillow[key]['Median 4-Bedroom Home Value'].get('value', 0)) + ',' + str(overallZillow[key]['Median Condo Value'].get('value', 0)) + ',' + str(overallZillow[key]['Median List Price Per Sq Ft'].get('value', 0)) + ',' + str(overallZillow[key]['forSale'])
