@@ -8,8 +8,10 @@ ZIPCODES2 = [95007,95008,95009,95010,95011,95013,95014,95015,95017,95018,95019,9
 ozone1 = []
 pm1 = []
 
+api = 'YourAPIKeyHere'
+
 for i in ZIPCODES1:
-  url_str = 'http://www.airnowapi.org/aq/observation/zipCode/historical/?format=application/json&zipCode='+ str(i) +'&date=2015-07-06T00-0000&distance=1&API_KEY=D3CEE2A1-2A6F-4AA6-B797-D10FD0E54ACA'
+  url_str = 'http://www.airnowapi.org/aq/observation/zipCode/historical/?format=application/json&zipCode='+ str(i) +'&date=2015-07-06T00-0000&distance=1&API_KEY=' + str(api)
   request = Request(url_str)
   response = urlopen(request)
   output = response.read()
@@ -31,7 +33,7 @@ ozone2 = []
 pm2 = []
 
 for i in ZIPCODES2:
-  url_str = 'http://www.airnowapi.org/aq/observation/zipCode/historical/?format=application/json&zipCode='+ str(i) +'&date=2015-07-06T00-0000&distance=1&API_KEY=D3CEE2A1-2A6F-4AA6-B797-D10FD0E54ACA'
+  url_str = 'http://www.airnowapi.org/aq/observation/zipCode/historical/?format=application/json&zipCode='+ str(i) +'&date=2015-07-06T00-0000&distance=1&API_KEY=' + str(api)
   request = Request(url_str)
   response = urlopen(request)
   output = response.read()
