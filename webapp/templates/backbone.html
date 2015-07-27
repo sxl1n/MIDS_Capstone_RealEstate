@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-slider.css') }}">
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap-select.js') }}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap-slider.min.js') }}"></script>
+    <title>Real Estate - {% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <img alt="Brand" height="35" class="brand" src="{{url_for('static', filename='img/search.jpg') }}">
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="content">{% block content %}{% endblock %}</div>
+    <div class="container" id="footer">
+    {% block footer %}
+    {% endblock %}
+    </div>
+  </body>
+</html>

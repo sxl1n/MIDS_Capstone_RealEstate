@@ -1,0 +1,109 @@
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+      <div class="row">
+            <div style="margin-top:-20px" class="row">
+            <span id="image_results">
+                <div style="margin-top: 20px" class="jumbotron">
+                    <h1>Welcome to Real Estate Search</h1>
+                    <div class="row">
+                        <div style="margin-right: 5px; margin-left: 20px;" class="thumbnail col-md-1"><img src="{{ url_for('static', filename='img/Search.jpg') }}" alt="some_image_placeholder"></div>
+                    </div><br>
+                    <p>Some text goes here.</p>
+                </div>               
+            </span>
+            </div> <!-- END INDIVIDUAL IMAGE ROW -->
+    </div> <!-- END MAIN PAGE ROW -->
+    <div class="row">
+            <div class="col-md-6">
+            <div id="searchpanel" class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Real Estate Search</h3></div>
+                <div class="panel-body">
+                    <form id="query_form" class="form-horizontal" action="/">
+                        <div class="form-group">
+                            <label class="col-md-12" for="slider">Grade of School</label>
+                            <div class="col-md-12" style="margin-left: -7px">
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary"}}>Elementary School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio2" value="Middle" {{"checked=checked" if filters.get("SchoolRadio") == "Middle"}}>Middle School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio3" value="High" {{"checked=checked" if filters.get("SchoolRadio") == "High"}}>High School
+                              </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="slider">Minimum School Rating</label>
+                            <div class="col-md-1" style="margin-left: 10px">1</div>
+                            <div class="col-md-5" style="margin-left: -20px">
+                                <input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '8'}} name="SchoolRatingSlider"/>
+                            </div>
+                            <div class="col-md-1" style="margin-left: 0px">10</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-12" for="singleselect">Price Range</label>
+                            <select id="singleselect" class="selectpicker col-md-4" name="PriceSelect">
+                                <option value="0-399999" {{"selected=selected" if filters.get("PriceSelect") == "0-399999"}}>$0-$399,999</option>
+                                <option value="400000-499999" {{"selected=selected" if filters.get("PriceSelect") == "400000-499999"}}>$400,000-$499,999</option>
+                                <option value="500000-599999" {{"selected=selected" if filters.get("PriceSelect") == "500000-599999"}}>$500,000-$599,999</option>
+                                <option value="600000-699999" {{"selected=selected" if filters.get("PriceSelect") == "600000-699999"}}>$600,000-$699,999</option>
+                                <option value="700000-799999" {{"selected=selected" if filters.get("PriceSelect") == "700000-799999"}}>$700,000-$799,999</option>
+                                <option value="800000-999999" {{"selected=selected" if filters.get("PriceSelect") == "800000-999999"}}>$800,000-$999,999</option>
+                                <option value="1000000-1199999" {{"selected=selected" if filters.get("PriceSelect") == "1000000-1199999"}}>$1,000,000-$1,199,999</option>
+                                <option value="1200000-1499999" {{"selected=selected" if filters.get("PriceSelect") == "1200000-1499999"}}>$1,200,000-$1,499,999</option>
+                                <option value="1500000-1999999" {{"selected=selected" if filters.get("PriceSelect") == "1500000-1999999"}}>$1,500,000-$1,999,999</option>
+                                <option value="2000000-100000000" {{"selected=selected" if filters.get("PriceSelect") == "2000000-100000000"}}>$2,000,000-$100,000,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-12" for="singleselect">House Type</label>
+                            <select id="singleselect" class="selectpicker col-md-4" name="HouseTypeSelect">
+                                <option value="median_sale_price" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_sale_price"}}>All</option>
+                                <option value="median_condo" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_condo"}}>Condo</option>
+                                <option value="median_2_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_2_bedroom"}}>2-Bedroom</option>
+                                <option value="median_3_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_3_bedroom"}}>3-Bedroom</option>
+                                <option value="median_4_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_4_bedroom"}}>4-Bedroom</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <button id="query_button" type="submit" style="margin-right: 14px" class="btn btn-primary col-md-2 pull-right">Search</button>
+                            <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">
+                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+      </div>
+
+{% for row in rows %}
+<div>{{row[0]}}</div>
+{% endfor %}
+
+
+
+{% endblock %}
+
+{% block footer %}
+    <script>
+        var slider = null;
+        $(document).ready(function() {
+            slider = new Slider('#slider', {});
+        });
+
+        $(function() {
+            $("button#refresh").click(function() {     
+                $('.selectpicker').selectpicker('deselectAll');
+            });
+        });
+
+
+    </script>
+{% endblock %}
