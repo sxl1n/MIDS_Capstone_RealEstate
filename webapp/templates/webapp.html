@@ -83,9 +83,24 @@
             </div>
       </div>
 
-{% for row in rows %}
-<div>{{row[0]}}</div>
-{% endfor %}
+<div>
+  <table class="table">
+  <tr>
+    <th>Zipcode</th>
+    <th>Median Price</th>
+    <th>Average School Rating</th>
+    <th>Score</th>
+  </tr>
+    {% for row in rows %}
+  <tr>
+    <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    <td>{{row[2]}}</td>
+    <td>{{row[3]}}</td>
+  </tr>
+    {% endfor %}
+  </table>
+</div>
 
 
 

@@ -51,7 +51,7 @@ def home():
     min_price = int(min_price)
     max_price = int(max_price)
     house_type = filters.get("HouseTypeSelect")
-    query = "select zipcode, grade_level, %s, score, avg(school_ratings) from entries where grade_level like %s and school_ratings >= %d and %s between %d and %d group by 1,2,3,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
+    query = "select zipcode, %s, avg(school_ratings), score from entries where grade_level like %s and school_ratings >= %d and school_ratings <> 'None' and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
     rows = g.db.execute(query).fetchall()
     return render_template('webapp.html', filters=filters, rows=rows)
 
