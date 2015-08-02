@@ -21,8 +21,8 @@
                 <div class="panel-body">
                     <form id="query_form" class="form-horizontal" action="/">
                         <div class="form-group">
-                            <label class="col-md-12" for="slider">Grade of School</label>
-                            <div class="col-md-12" style="margin-left: -7px">
+                            <label class="col-md-12" for="gradeselect">Grade of School</label>
+                            <div class="col-md-12">
                               <label class="radio-inline">
                                 <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary"}}>Elementary School
                               </label>
@@ -45,8 +45,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-md-12" for="singleselect">Price Range</label>
-                            <select id="singleselect" class="selectpicker col-md-4" name="PriceSelect">
+                            <label class="col-md-12" for="singleselectprice">Price Range</label>
+                            <select id="singleselectprice" class="selectpicker col-md-4" name="PriceSelect">
                                 <option value="0-399999" {{"selected=selected" if filters.get("PriceSelect") == "0-399999"}}>$0-$399,999</option>
                                 <option value="400000-499999" {{"selected=selected" if filters.get("PriceSelect") == "400000-499999"}}>$400,000-$499,999</option>
                                 <option value="500000-599999" {{"selected=selected" if filters.get("PriceSelect") == "500000-599999"}}>$500,000-$599,999</option>
@@ -61,8 +61,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-md-12" for="singleselect">House Type</label>
-                            <select id="singleselect" class="selectpicker col-md-4" name="HouseTypeSelect">
+                            <label class="col-md-12" for="singleselecttype">House Type</label>
+                            <select id="singleselecttype" class="selectpicker col-md-4" name="HouseTypeSelect">
                                 <option value="median_sale_price" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_sale_price"}}>All</option>
                                 <option value="median_condo" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_condo"}}>Condo</option>
                                 <option value="median_2_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_2_bedroom"}}>2-Bedroom</option>
@@ -71,7 +71,26 @@
                             </select>
                         </div>
 
+                          <div class="form-group">
+                            <label class="col-md-12" for="inputZipcode">Input Current Zipcode</label>
+                            <div class="col-md-4">
+                            <input type="number" class="form-control" id="inputZipcode" placeholder="Zipcode" min="0" data-bind="value:replyNumber">
+                            </div>
+                          </div>
+
                         <div class="form-group">
+                            <label class="col-md-12" for="currentzipcode">Do you like your current zipcode?</label>
+                            <div class="col-md-12">
+                              <label class="radio-inline">
+                                <input type="radio" name="ZipcodeRadio" id="inlineRadio1" value="Yes">Yes
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="ZipcodeRadio" id="inlineRadio2" value="No">No
+                              </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
                             <button id="query_button" type="submit" style="margin-right: 14px" class="btn btn-primary col-md-2 pull-right">Search</button>
                             <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">
                                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>

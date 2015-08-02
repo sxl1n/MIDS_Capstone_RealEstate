@@ -43,17 +43,20 @@ def teardown_request(exception):
 @app.route('/')
 @app.route('/index.html')
 def home():
-    filters = request.args
-    school_level = '\'%' + filters.get("SchoolRadio") + '%\''
-    rating_min = int(filters.get("SchoolRatingSlider"))
-    price_level = filters.get("PriceSelect")
-    min_price, max_price = price_level.split('-')
-    min_price = int(min_price)
-    max_price = int(max_price)
-    house_type = filters.get("HouseTypeSelect")
-    query = "select zipcode, %s, avg(school_ratings), score from entries where grade_level like %s and school_ratings >= %d and school_ratings <> 'None' and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
-    rows = g.db.execute(query).fetchall()
-    return render_template('webapp.html', filters=filters, rows=rows)
+    if request.args == {}:
+      return render_template('webapp.html', filters={}, rows=[])
+    else:  
+      filters = request.args
+      school_level = ('\'%' + filters.get("SchoolRadio") + '%\'')
+      rating_min = int(filters.get("SchoolRatingSlider"))
+      price_level = filters.get("PriceSelect")
+      min_price, max_price = price_level.split('-')
+      min_price = int(min_price)
+      max_price = int(max_price)
+      house_type = filters.get("HouseTypeSelect")
+      query = "select zipcode, %s, avg(school_ratings), score from entries where grade_level like %s and school_ratings >= %d and school_ratings <> 'None' and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
+      rows = g.db.execute(query).fetchall()
+      return render_template('webapp.html', filters=filters, rows=rows)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

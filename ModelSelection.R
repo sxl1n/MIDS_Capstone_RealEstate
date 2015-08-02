@@ -25,18 +25,57 @@ BIC(rf) #1588.47
 BIC(rf_reg) #1592.952
 
 ## Regression Weighted Scores
+
+Call:
+lm(formula = Avg_Median_Home_Price ~ avg_temperature + female_labor + 
+    pop_growth_rate + Poverty_Rate + unemployment_rate + renter_occupied + 
+    Construction + Educational_Services + Health_Care_and_Social_Assistance + 
+    Information + Management_of_Companies_and_Enterprises + income, 
+    data = high_level, na.action = na.omit)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-72872 -17962   5989  24749  74234 
+
+Coefficients:
+                                          Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                              1.413e+06  7.630e+05   1.852 0.082638 .  
+avg_temperature                         -4.730e+04  1.311e+04  -3.608 0.002360 ** 
+female_labor                             1.365e+06  5.516e+05   2.475 0.024901 *  
+pop_growth_rate                          1.452e+05  5.915e+04   2.455 0.025895 *  
+Poverty_Rate                             2.240e+04  7.821e+03   2.864 0.011243 *  
+unemployment_rate                       -2.810e+04  7.395e+03  -3.800 0.001574 ** 
+renter_occupied                          8.769e+05  2.601e+05   3.372 0.003882 ** 
+Construction                            -1.352e+03  2.963e+02  -4.562 0.000320 ***
+Educational_Services                    -8.443e+03  2.040e+03  -4.140 0.000770 ***
+Health_Care_and_Social_Assistance        9.464e+02  2.934e+02   3.225 0.005287 ** 
+Information                              6.710e+03  1.153e+03   5.818 2.62e-05 ***
+Management_of_Companies_and_Enterprises -6.616e+03  1.597e+03  -4.142 0.000766 ***
+income                                   1.018e+01  7.688e-01  13.243 4.87e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 51700 on 16 degrees of freedom
+  (491 observations deleted due to missingness)
+Multiple R-squared:  0.9852,	Adjusted R-squared:  0.9742 
+F-statistic: 89.01 on 12 and 16 DF,  p-value: 2.711e-12
+
 attach(high_level)
 subset = data.frame(avg_temperature, female_labor, pop_growth_rate, renter_occupied, Construction, Educational_Services,  Health_Care_and_Social_Assistance, Information, Management_of_Companies_and_Enterprises)
 
+## Using plain coefficients
+reg_weighted_raw = (-47300)*avg_temperature/max(avg_temperature, na.rm=TRUE) + (1365000)*female_labor/max(female_labor, na.rm=TRUE) + (145200)*pop_growth_rate/max(pop_growth_rate, na.rm=TRUE) + (876900)*renter_occupied/max(renter_occupied, na.rm=TRUE) + (-1352)*Construction/max(Construction, na.rm=TRUE) + (-8443)*Educational_Services/max(Educational_Services, na.rm=TRUE) + (946.4)*Health_Care_and_Social_Assistance/max(Health_Care_and_Social_Assistance, na.rm=TRUE) + (6710)*Information/max(Information, na.rm=TRUE) + (-6616)*Management_of_Companies_and_Enterprises/max(Management_of_Companies_and_Enterprises, na.rm=TRUE)
+
+## Using T-values
 reg_weighted_raw = (-3.608)*avg_temperature/max(avg_temperature, na.rm=TRUE) + (2.475)*female_labor/max(female_labor, na.rm=TRUE) + (2.455)*pop_growth_rate/max(pop_growth_rate, na.rm=TRUE) + (3.372)*renter_occupied/max(renter_occupied, na.rm=TRUE) + (-4.562)*Construction/max(Construction, na.rm=TRUE) + (-4.14)*Educational_Services/max(Educational_Services, na.rm=TRUE) + (3.225)*Health_Care_and_Social_Assistance/max(Health_Care_and_Social_Assistance, na.rm=TRUE) + (5.818)*Information/max(Information, na.rm=TRUE) + (-4.142)*Management_of_Companies_and_Enterprises/max(Management_of_Companies_and_Enterprises, na.rm=TRUE)
 
 rdist = max(reg_weighted_raw, na.rm=TRUE) - min(reg_weighted_raw, na.rm=TRUE)
 reg_weighted = (reg_weighted_raw - min(reg_weighted_raw, na.rm=TRUE)) / rdist * 100
 
-scores = cbind(zip[complete_records==TRUE], reg_weighted[complete_records==TRUE])
+scores = cbind(zip[complete_records==TRUE], as.integer(reg_weighted[complete_records==TRUE]))
 scores
 
-       [zip]   [score]
+        [,1]       [,2]
   [1,] 94010  52.077622
   [2,] 94018  70.356039
   [3,] 94019  54.906536
