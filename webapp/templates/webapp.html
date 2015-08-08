@@ -3,46 +3,23 @@
 {% block content %}
       <div class="row">
             <div style="margin-top:-20px" class="row">
-            <span id="image_results">
                 <div style="margin-top: 20px" class="jumbotron">
                     <h1>Welcome to Real Estate Search</h1>
-                    <div class="row">
+<!--                     <div class="row">
                         <div style="margin-right: 5px; margin-left: 20px;" class="thumbnail col-md-1"><img src="{{ url_for('static', filename='img/Search.jpg') }}" alt="some_image_placeholder"></div>
-                    </div><br>
+                    </div> -->
                     <p>Some text goes here.</p>
                 </div>               
-            </span>
             </div> <!-- END INDIVIDUAL IMAGE ROW -->
     </div> <!-- END MAIN PAGE ROW -->
     <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
             <div id="searchpanel" class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title">Real Estate Search</h3></div>
                 <div class="panel-body">
                     <form id="query_form" class="form-horizontal" action="/">
-                        <div class="form-group">
-                            <label class="col-md-12" for="gradeselect">Grade of School</label>
-                            <div class="col-md-12">
-                              <label class="radio-inline">
-                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary"}}>Elementary School
-                              </label>
-                              <label class="radio-inline">
-                                <input type="radio" name="SchoolRadio" id="inlineRadio2" value="Middle" {{"checked=checked" if filters.get("SchoolRadio") == "Middle"}}>Middle School
-                              </label>
-                              <label class="radio-inline">
-                                <input type="radio" name="SchoolRadio" id="inlineRadio3" value="High" {{"checked=checked" if filters.get("SchoolRadio") == "High"}}>High School
-                              </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-12" for="slider">Minimum School Rating</label>
-                            <div class="col-md-1" style="margin-left: 10px">1</div>
-                            <div class="col-md-5" style="margin-left: -20px">
-                                <input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '8'}} name="SchoolRatingSlider"/>
-                            </div>
-                            <div class="col-md-1" style="margin-left: 0px">10</div>
-                        </div>
+                    <div class="column">
+                    <div class="col-md-6">
                         
                         <div class="form-group">
                             <label class="col-md-12" for="singleselectprice">Price Range</label>
@@ -71,6 +48,30 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label class="col-md-12" for="gradeselect">Grade of School</label>
+                            <div class="col-md-12">
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary" or filters.get("SchoolRadio") == None}}>Elementary School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio2" value="Middle" {{"checked=checked" if filters.get("SchoolRadio") == "Middle"}}>Middle School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio3" value="High" {{"checked=checked" if filters.get("SchoolRadio") == "High"}}>High School
+                              </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="slider">Minimum School Rating</label>
+                            <div class="col-md-10">
+                                <b>1 </b><input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '8'}} name="SchoolRatingSlider"/><b> 10</b>
+                            </div>
+                        </div>
+                        <br>
+
+                          <h4 style="color: #337ab7">Similarity Score</h4> 
                           <div class="form-group">
                             <label class="col-md-12" for="inputZipcode">Input Current Zipcode</label>
                             <div class="col-md-4">
@@ -89,27 +90,76 @@
                               </label>
                             </div>
                         </div>
+                        </div>
+                        </div>
 
-                        <div class="form-group ">
-                            <button id="query_button" type="submit" style="margin-right: 14px" class="btn btn-primary col-md-2 pull-right">Search</button>
+                    <div class="column">
+                    <div id="parameters-section" class="col-md-6">
+
+                        <h4 style="color: #337ab7">Personal Score</h4> 
+                        <div class="form-group">
+                            <label class="col-md-12" for="param1">Parameter 1</label>
+                            <div class="col-md-12">
+                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param1") or '50'}} name="param1"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="param2">Parameter 2</label>
+                            <div class="col-md-12">
+                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param2") or '50'}} name="param2"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="param3">Parameter 3</label>
+                            <div class="col-md-12">
+                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param3") or '50'}} name="param3"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="param4">Parameter 4</label>
+                            <div class="col-md-12">
+                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param4") or '50'}} name="param4"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="param5">Parameter 5</label>
+                            <div class="col-md-12">
+                                <input id="param5" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param5") or '50'}} name="param5"/>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <button id="query_button" type="submit" style="margin-right: 100px" class="btn btn-primary col-md-2 pull-right">Search</button>
                             <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">
                                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                             </button>
                         </div>
+                    </div>
+                    </div>
                     </form>
-                  </div>
+                </div>
                 </div>
             </div>
       </div>
 
-<div>
-  <table class="table">
+  <table id="myTable" class="tablesorter table">
+  <thead>
   <tr>
     <th>Zipcode</th>
     <th>Median Price</th>
     <th>Average School Rating</th>
     <th>Score</th>
   </tr>
+  </thead>
+  <tbody>
     {% for row in rows %}
   <tr>
     <td>{{row[0]}}</td>
@@ -118,8 +168,8 @@
     <td>{{row[3]}}</td>
   </tr>
     {% endfor %}
+  </tbody>
   </table>
-</div>
 
 
 
@@ -132,12 +182,52 @@
             slider = new Slider('#slider', {});
         });
 
+        var param1 = null;
+        $(document).ready(function() {
+            param1 = new Slider('#param1', {});
+        });
+
+        var param2 = null;
+        $(document).ready(function() {
+            param2 = new Slider('#param2', {});
+        });
+
+        var param3 = null;
+        $(document).ready(function() {
+            param3 = new Slider('#param3', {});
+        });
+
+        var param4 = null;
+        $(document).ready(function() {
+            param4 = new Slider('#param4', {});
+        });
+
+        var param5 = null;
+        $(document).ready(function() {
+            param5 = new Slider('#param5', {});
+        });
+
+
+
         $(function() {
             $("button#refresh").click(function() {     
                 $('.selectpicker').selectpicker('deselectAll');
             });
         });
 
+        $(document).ready(function() { 
+        $("#myTable").tablesorter(); 
+        }); 
+
 
     </script>
+    <style type="text/css">
+      #parameters-section .slider-horizontal {width: 400px};
+
+      th.header {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+    </style>
 {% endblock %}

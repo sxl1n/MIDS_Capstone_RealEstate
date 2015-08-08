@@ -2,19 +2,20 @@
 <html>
   <head>
     {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-slider.css') }}">
-    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='js/jquery.tablesorter.js') }}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap-select.js') }}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='js/bootstrap-slider.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-slider.css') }}">
     <title>Real Estate - {% block title %}{% endblock %}</title>
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-default">
+<!--     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">
@@ -23,7 +24,7 @@
                 
             </div>
         </div>
-    </nav>
+    </nav> -->
     <div class="container" id="content">{% block content %}{% endblock %}</div>
     <div class="container" id="footer">
     {% block footer %}
