@@ -52,7 +52,7 @@
                             <label class="col-md-12" for="gradeselect">Grade of School</label>
                             <div class="col-md-12">
                               <label class="radio-inline">
-                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary" or filters.get("SchoolRadio") == None}}>Elementary School
+                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary"}}>Elementary School
                               </label>
                               <label class="radio-inline">
                                 <input type="radio" name="SchoolRadio" id="inlineRadio2" value="Middle" {{"checked=checked" if filters.get("SchoolRadio") == "Middle"}}>Middle School
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label class="col-md-12" for="slider">Minimum School Rating</label>
                             <div class="col-md-10">
-                                <b>1 </b><input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '8'}} name="SchoolRatingSlider"/><b> 10</b>
+                                <b>1&nbsp;&nbsp;&nbsp;</b><input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '0'}} name="SchoolRatingSlider"/><b>&nbsp;&nbsp;&nbsp;10</b>
                             </div>
                         </div>
                         <br>
@@ -75,11 +75,11 @@
                           <div class="form-group">
                             <label class="col-md-12" for="inputZipcode">Input Current Zipcode</label>
                             <div class="col-md-4">
-                            <input type="number" class="form-control" id="inputZipcode" placeholder="Zipcode" min="0" data-bind="value:replyNumber">
+                            <input type="number" class="form-control" id="inputZipcode" placeholder="Zipcode" value={{filters.get("ZipInput")}} min="0" data-bind="value:replyNumber" name="ZipInput">
                             </div>
                           </div>
 
-                        <div class="form-group">
+<!--                         <div class="form-group">
                             <label class="col-md-12" for="currentzipcode">Do you like your current zipcode?</label>
                             <div class="col-md-12">
                               <label class="radio-inline">
@@ -89,7 +89,7 @@
                                 <input type="radio" name="ZipcodeRadio" id="inlineRadio2" value="No">No
                               </label>
                             </div>
-                        </div>
+                        </div> -->
                         </div>
                         </div>
 
@@ -98,37 +98,37 @@
 
                         <h4 style="color: #337ab7">Personal Score</h4> 
                         <div class="form-group">
-                            <label class="col-md-12" for="param1">Parameter 1</label>
-                            <div class="col-md-12">
-                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param1") or '50'}} name="param1"/>
+                            <label class="col-md-3" for="param1">Parks</label>
+                            <div class="col-md-6">
+                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("parks") or '50'}} name="parks"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12" for="param2">Parameter 2</label>
-                            <div class="col-md-12">
-                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param2") or '50'}} name="param2"/>
+                            <label class="col-md-3" for="param2">Coffeeshops</label>
+                            <div class="col-md-6">
+                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("coffeeshops") or '50'}} name="coffeeshops"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12" for="param3">Parameter 3</label>
-                            <div class="col-md-12">
-                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param3") or '50'}} name="param3"/>
+                            <label class="col-md-3" for="param3">Renter Occupied</label>
+                            <div class="col-md-6">
+                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("renter_occupied") or '50'}} name="renter_occupied"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12" for="param4">Parameter 4</label>
-                            <div class="col-md-12">
-                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param4") or '50'}} name="param4"/>
+                            <label class="col-md-3" for="param4">Precipitation</label>
+                            <div class="col-md-6">
+                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("avg_precipitation") or '50'}} name="avg_precipitation"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-12" for="param5">Parameter 5</label>
-                            <div class="col-md-12">
-                                <input id="param5" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("param5") or '50'}} name="param5"/>
+                            <label class="col-md-3" for="param5">Earthquake Index</label>
+                            <div class="col-md-6">
+                                <input id="param5" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("earthquake_index") or '50'}} name="earthquake_index"/>
                             </div>
                         </div>
 
@@ -155,8 +155,9 @@
   <tr>
     <th>Zipcode</th>
     <th>Median Price</th>
-    <th>Average School Rating</th>
-    <th>Score</th>
+    <th>Quality Score</th>
+    <th>Similarity Score</th>
+    <th>Personal Score</th>
   </tr>
   </thead>
   <tbody>
@@ -164,8 +165,9 @@
   <tr>
     <td>{{row[0]}}</td>
     <td>{{row[1]}}</td>
-    <td>{{row[2]}}</td>
     <td>{{row[3]}}</td>
+    <td>{{similarity_scores[row[0]]}}</td>
+    <td>{{filtered_pers_zips[row[0]]}}</td>
   </tr>
     {% endfor %}
   </tbody>
@@ -222,7 +224,7 @@
 
     </script>
     <style type="text/css">
-      #parameters-section .slider-horizontal {width: 400px};
+      #parameters-section .slider-horizontal {width: 350px};
 
       th.header {
         cursor: pointer;

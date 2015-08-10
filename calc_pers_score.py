@@ -76,19 +76,19 @@ def ServeRequests():
             user_preferences[feature_fields[0]] = feature_fields[1]
 
         zip_scores = CalcPersScore(user_preferences)
-        # print zip_scores
+        print zip_scores
 
-        scores_list = []
-        for zz in zip_scores.keys():
-            scores_list.append((zz, zip_scores[zz]))
+        # scores_list = []
+        # for zz in zip_scores.keys():
+        #     scores_list.append((zz, zip_scores[zz]))
 
-        scores_list.sort(lambda zip1, zip2: 1 if zip1[1] < zip2[1] else -1)
+        # scores_list.sort(lambda zip1, zip2: 1 if zip1[1] < zip2[1] else -1)
 
-        ii = 0
-        for zz in scores_list:
-            if ii > 9: break
-            print "ZIP: %s, Score: %0.2f" % (zz[0], zz[1])
-            ii += 1
+        # ii = 0
+        # for zz in scores_list:
+        #     if ii > 9: break
+        #     print "ZIP: %s, Score: %0.2f" % (zz[0], zz[1])
+        #     ii += 1
 
 
 if __name__ == "__main__":
