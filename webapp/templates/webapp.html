@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label class="col-md-12" for="singleselectprice">Price Range</label>
                             <select id="singleselectprice" class="selectpicker col-md-4" name="PriceSelect">
-                                <option value="0-399999" {{"selected=selected" if filters.get("PriceSelect") == "0-399999"}}>$0-$399,999</option>
+                                <option value="100000-399999" {{"selected=selected" if filters.get("PriceSelect") == "100000-399999"}}>$100,000-$399,999</option>
                                 <option value="400000-499999" {{"selected=selected" if filters.get("PriceSelect") == "400000-499999"}}>$400,000-$499,999</option>
                                 <option value="500000-599999" {{"selected=selected" if filters.get("PriceSelect") == "500000-599999"}}>$500,000-$599,999</option>
                                 <option value="600000-699999" {{"selected=selected" if filters.get("PriceSelect") == "600000-699999"}}>$600,000-$699,999</option>
@@ -98,9 +98,9 @@
 
                         <h4 style="color: #337ab7">Personal Score</h4> 
                         <div class="form-group">
-                            <label class="col-md-3" for="param1">Parks</label>
+                            <label class="col-md-3" for="param1">Safety</label>
                             <div class="col-md-6">
-                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("parks") or '50'}} name="parks"/>
+                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("crime_index") or '50'}} name="crime_index"/>
                             </div>
                         </div>
 
@@ -112,16 +112,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3" for="param3">Renter Occupied</label>
+                            <label class="col-md-3" for="param3">Poverty Rate</label>
                             <div class="col-md-6">
-                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("renter_occupied") or '50'}} name="renter_occupied"/>
+                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("poverty_rate") or '50'}} name="poverty_rate"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3" for="param4">Precipitation</label>
+                            <label class="col-md-3" for="param4">Average Temperature (Higher is Better)</label>
                             <div class="col-md-6">
-                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("avg_precipitation") or '50'}} name="avg_precipitation"/>
+                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("avg_temperature") or '50'}} name="avg_temperature"/>
                             </div>
                         </div>
 
@@ -158,6 +158,7 @@
     <th>Quality Score</th>
     <th>Similarity Score</th>
     <th>Personal Score</th>
+    <th>Appreciation Score</th>
   </tr>
   </thead>
   <tbody>
@@ -165,9 +166,10 @@
   <tr>
     <td>{{row[0]}}</td>
     <td>{{row[1]}}</td>
-    <td>{{row[3]}}</td>
+    <td>{{qual_scores[row[0]]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
     <td>{{filtered_pers_zips[row[0]]}}</td>
+    <td>{{app_scores[row[0]]}}
   </tr>
     {% endfor %}
   </tbody>

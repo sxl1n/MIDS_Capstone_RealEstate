@@ -1,6 +1,6 @@
 drop table entries;
 create table entries (
-  id integer primary key autoincrement,
+  id integer primary key ,
   zipcode integer not null,
   gsid integer,
   school_name text,
@@ -18,7 +18,8 @@ create table entries (
   median_condo numeric,
   median_list_price_per_sqft numeric,
   for_sale_link text,
-  score numeric not null);
+  score numeric,
+  app_score numeric);
 
 .separator "\t"
 .import data.tsv entries
