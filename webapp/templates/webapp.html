@@ -4,7 +4,7 @@
       <div class="row">
             <div style="margin-top:-20px" class="row">
                 <div style="margin-top: 20px" class="jumbotron">
-                    <h1>Welcome to Real Estate Search</h1>
+                    <h1>Welcome to Neighborhood Search</h1>
 <!--                     <div class="row">
                         <div style="margin-right: 5px; margin-left: 20px;" class="thumbnail col-md-1"><img src="{{ url_for('static', filename='img/Search.jpg') }}" alt="some_image_placeholder"></div>
                     </div> -->
@@ -137,10 +137,12 @@
                         <br>
 
                         <div class="form-group">
+                          <a href="http://localhost:5000/">
                             <button id="query_button" type="submit" style="margin-right: 100px" class="btn btn-primary col-md-2 pull-right">Search</button>
-                            <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">
-                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                            <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">Reset
+<!--                               <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> -->
                             </button>
+                            </a>
                         </div>
                     </div>
                     </div>
@@ -159,6 +161,7 @@
     <th>Similarity Score</th>
     <th>Personal Score</th>
     <th>Appreciation Score</th>
+    <th>Average Score</th>
   </tr>
   </thead>
   <tbody>
@@ -166,10 +169,11 @@
   <tr>
     <td>{{row[0]}}</td>
     <td>{{row[1]}}</td>
-    <td>{{qual_scores[row[0]]}}</td>
+    <td>{{row[3]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
     <td>{{filtered_pers_zips[row[0]]}}</td>
-    <td>{{app_scores[row[0]]}}
+    <td>{{row[4]}}
+    <td>{{(row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4}}</td>
   </tr>
     {% endfor %}
   </tbody>
@@ -232,6 +236,24 @@
         cursor: pointer;
         font-weight: bold;
       }
+      th.header.headerSortUp { 
+        background-image: url(/static/img/asc.gif); 
+        background-color: #8dbdd8; 
+      } 
+      th.header.headerSortDown { 
+        background-image: url(/static/img/desc.gif); 
+        background-color: #8dbdd8; 
+      } 
+      th.header { 
+        background-image: url(/static/img/bg.gif); 
+        cursor: pointer; 
+        font-weight: bold; 
+        background-repeat: no-repeat; 
+        background-position: center right; 
+        padding-left: 20px; 
+        border-right: 1px solid #8dbdd8; 
+        margin-left: -1px; 
+      } 
 
     </style>
 {% endblock %}

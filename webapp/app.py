@@ -31,9 +31,9 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
 
-def zip_distance(given_zip, target_zips):
-    fileName = "merged_fat.csv"
-    df = pd.read_csv(fileName)
+def zip_distance(given_zip):
+    global df
+    target_zips = df['zip']
     df_targets = df[df.zip.isin(target_zips)]
     given_zip_data = df[df.zip == given_zip]
     zip_dist = euclidean_distances(df_targets.values, given_zip_data.values)
@@ -111,6 +111,9 @@ def teardown_request(exception):
     if db is not None:
         db.close()
 
+@app.route('/about.html')
+def about():
+  return render_template('about.html')
 
 # use decorators to link the function to a url
 @app.route('/')
@@ -128,37 +131,39 @@ def home():
       house_type = filters.get("HouseTypeSelect")
       input_zipcode = int(filters.get("ZipInput"))
       parameter_input = {'crime_index':int(filters.get("crime_index")), 'coffeeshops':int(filters.get("coffeeshops")), 'poverty_rate':int(filters.get("poverty_rate")), 'avg_temperature':int(filters.get("avg_temperature")), 'earthquake_index':int(filters.get("earthquake_index"))}
-      personal_scores = CalcPersScore(parameter_input)
+      personal_scores = normalized_zips(CalcPersScore(parameter_input))
       if filters.get("SchoolRadio") == None:
         zips = "select zipcode from entries where school_ratings >= %d and %s between %d and %d group by 1" % (rating_min, house_type, min_price, max_price)
         filtered_zips = g.db.execute(zips).fetchall()
         filtered_zips = [int(tuplezip[0]) for tuplezip in filtered_zips]
         filtered_pers_zips = {zipcode: personal_scores[str(zipcode)] for zipcode in filtered_zips}
-        filtered_pers_zips = normalized_zips(filtered_pers_zips)
-        similarity_scores = normalized_zips(zip_distance(input_zipcode, filtered_zips))
-        query = "select zipcode, %s, avg(school_ratings), score, app_score from entries where school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, rating_min, house_type, min_price, max_price)
+        # filtered_pers_zips = normalized_zips(filtered_pers_zips)
+        similarity_scores = normalized_zips(zip_distance(input_zipcode))
+        query = "select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer) from entries where school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, rating_min, house_type, min_price, max_price)
         rows = g.db.execute(query).fetchall()
-        qual_scores = {int(row[0]): int(row[3]) for row in rows}
-        qual_scores = normalized_zips(qual_scores)
-        app_scores = {int(row[0]): int(row[4]) for row in rows}
-        app_scores = normalized_zips(app_scores)
-        return render_template('webapp.html', filters=filters, rows=rows, filtered_pers_zips=filtered_pers_zips, similarity_scores=similarity_scores, qual_scores=qual_scores, app_scores=app_scores)
+        # qual_scores = {int(row[0]): int(row[3]) for row in rows}
+        # qual_scores = normalized_zips(qual_scores)
+        # app_scores = {int(row[0]): int(row[4]) for row in rows}
+        # app_scores = normalized_zips(app_scores)
+        return render_template('webapp.html', filters=filters, rows=rows, filtered_pers_zips=filtered_pers_zips, similarity_scores=similarity_scores)
       else:
         school_level = ('\'%' + filters.get("SchoolRadio") + '%\'')
         zips = "select zipcode from entries where grade_level like %s and school_ratings >= %d and %s between %d and %d group by 1" % (school_level, rating_min, house_type, min_price, max_price)
         filtered_zips = g.db.execute(zips).fetchall()
         filtered_zips = [int(tuplezip[0]) for tuplezip in filtered_zips]
         filtered_pers_zips = {zipcode: personal_scores[str(zipcode)] for zipcode in filtered_zips}
-        filtered_pers_zips = normalized_zips(filtered_pers_zips)
-        similarity_scores = normalized_zips(zip_distance(input_zipcode, filtered_zips))
-        query = "select zipcode, %s, avg(school_ratings), score, app_score from entries where grade_level like %s and school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
+        # filtered_pers_zips = normalized_zips(filtered_pers_zips)
+        similarity_scores = normalized_zips(zip_distance(input_zipcode))
+        query = "select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer) from entries where grade_level like %s and school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
         rows = g.db.execute(query).fetchall()
-        qual_scores = {int(row[0]): int(row[3]) for row in rows}
-        qual_scores = normalized_zips(qual_scores)
-        app_scores = {int(row[0]): int(row[4]) for row in rows}
-        app_scores = normalized_zips(app_scores)
-        return render_template('webapp.html', filters=filters, rows=rows, filtered_pers_zips=filtered_pers_zips, similarity_scores=similarity_scores, qual_scores=qual_scores, app_scores=app_scores)
+        # qual_scores = {int(row[0]): int(row[3]) for row in rows}
+        # qual_scores = normalized_zips(qual_scores)
+        # app_scores = {int(row[0]): int(row[4]) for row in rows}
+        # app_scores = normalized_zips(app_scores)
+        return render_template('webapp.html', filters=filters, rows=rows, filtered_pers_zips=filtered_pers_zips, similarity_scores=similarity_scores)
 
 if __name__ == '__main__':
     ReadPersScores('pers_score_dataset.csv')
+    fileName = "merged_fat.csv"
+    df = pd.read_csv(fileName)
     app.run(debug=True, host='0.0.0.0')

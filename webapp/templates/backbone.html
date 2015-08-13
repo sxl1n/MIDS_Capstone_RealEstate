@@ -15,16 +15,22 @@
     {% endblock %}
   </head>
   <body>
-<!--     <nav class="navbar navbar-default">
-        <div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">
-                    <img alt="Brand" height="35" class="brand" src="{{url_for('static', filename='img/search.jpg') }}">
+                    <img alt="Brand" height="25" class="brand" src="{{url_for('static', filename='img/search.png') }}">
                 </a>
                 
             </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="about" onmouseover="$(this).addClass('active');" onmouseout="$(this).removeClass('active');"><a href="/index.html">Home</a></li>
+                    <li id="about" onmouseover="$(this).addClass('active');" onmouseout="$(this).removeClass('active');"><a href="/about.html">About</a></li>
+                </ul>
+            </div>
         </div>
-    </nav> -->
+    </nav>
     <div class="container" id="content">{% block content %}{% endblock %}</div>
     <div class="container" id="footer">
     {% block footer %}
