@@ -8,7 +8,7 @@
 <!--                     <div class="row">
                         <div style="margin-right: 5px; margin-left: 20px;" class="thumbnail col-md-1"><img src="{{ url_for('static', filename='img/Search.jpg') }}" alt="some_image_placeholder"></div>
                     </div> -->
-                    <p>Some text goes here.</p>
+                    <p>This is the capstone project created by Judd, Sharon, and Thiyagu, for the UC Berkeley Master of Information and Data Science program. For more information, please visit the <a href="/about.html">About</a> Page.</p>
                 </div>               
             </div> <!-- END INDIVIDUAL IMAGE ROW -->
     </div> <!-- END MAIN PAGE ROW -->
@@ -98,6 +98,13 @@
 
                         <h4 style="color: #337ab7">Personal Score</h4> 
                         <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <label class="col-md-1">Least Preferred</label>
+                            <label class="col-md-7"></label>
+                            <label class="col-md-1">Most Preferred</label>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-3" for="param1">Safety</label>
                             <div class="col-md-6">
                                 <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("crime_index") or '50'}} name="crime_index"/>
@@ -112,14 +119,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3" for="param3">Poverty Rate</label>
+                            <label class="col-md-3" for="param3">Lower Poverty Rate</label>
                             <div class="col-md-6">
                                 <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("poverty_rate") or '50'}} name="poverty_rate"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3" for="param4">Average Temperature (Higher is Better)</label>
+                            <label class="col-md-3" for="param4">Higher Average Temperature</label>
                             <div class="col-md-6">
                                 <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("avg_temperature") or '50'}} name="avg_temperature"/>
                             </div>
@@ -173,7 +180,11 @@
     <td>{{similarity_scores[row[0]]}}</td>
     <td>{{filtered_pers_zips[row[0]]}}</td>
     <td>{{row[4]}}
-    <td>{{(row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4}}</td>
+     {% if similarity_scores[row[0]] %} 
+    <td>{{ ((row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4) | round | int}}</td>
+    {% else %}
+    <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
+    {% endif %}
   </tr>
     {% endfor %}
   </tbody>

@@ -31,19 +31,37 @@ def init_db():
             db.cursor().executescript(f.read())
         db.commit()
 
+# def zip_distance(given_zip):
+#     global df
+#     target_zips = df['zip']
+#     df_targets = df[df.zip.isin(target_zips)]
+#     given_zip_data = df[df.zip == given_zip]
+#     zip_dist = euclidean_distances(df_targets.values, given_zip_data.values)
+#     dist_list = zip_dist.reshape(df_targets.shape[0],)
+#     zip_list = df_targets.ix[:,0].astype(int)
+#     zip_dist_dict = dict(zip(zip_list, dist_list.T))
+#     return zip_dist_dict
+
+
 def zip_distance(given_zip):
     global df
-    target_zips = df['zip']
-    df_targets = df[df.zip.isin(target_zips)]
-    given_zip_data = df[df.zip == given_zip]
-    zip_dist = euclidean_distances(df_targets.values, given_zip_data.values)
-    dist_list = zip_dist.reshape(df_targets.shape[0],)
-    zip_list = df_targets.ix[:,0].astype(int)
-    zip_dist_dict = dict(zip(zip_list, dist_list.T))
+    zip_dist_dict = {}
+
+    if given_zip != '':
+        target_zips = df['zip']
+        df_targets = df[df.zip.isin(target_zips)]
+        print given_zip
+        given_zip_data = df[df.zip == int(given_zip)]
+
+        if not given_zip_data.empty and not df_targets.empty:
+            zip_dist = euclidean_distances(df_targets.values, given_zip_data.values)
+            dist_list = zip_dist.reshape(df_targets.shape[0],)
+            zip_list = df_targets.ix[:,0].astype(int)
+            zip_dist_dict = dict(zip(zip_list, dist_list.T))
+
     return zip_dist_dict
 
 g_zip_feature_scores = []
-
 
 def ReadPersScores(a_zipPersScoresFilepath):
     global g_zip_feature_scores
@@ -91,15 +109,16 @@ def CalcPersScore(a_featureWeights):
     return zip_scores
 
 def normalized_zips(filtered_zipcodes):
-    min_value = min(filtered_zipcodes.values())
-    max_value = max(filtered_zipcodes.values())
-    distance = max_value - min_value
-    normalized_scores = {}
-    if min_value == max_value:
-      normalized_scores = {zipcode: 100 for zipcode in filtered_zipcodes.keys()}
-    else:
-      normalized_scores = {zipcode: int((filtered_zipcodes[zipcode] - min_value)*100/distance) for zipcode in filtered_zipcodes.keys()}
-    return normalized_scores
+    if all(x is None for x in filtered_zipcodes.values()) is False:
+        min_value = min(filtered_zipcodes.values())
+        max_value = max(filtered_zipcodes.values())
+        distance = max_value - min_value
+        normalized_scores = {}
+        if min_value == max_value:
+          normalized_scores = {zipcode: 100 for zipcode in filtered_zipcodes.keys()}
+        else:
+          normalized_scores = {zipcode: int((filtered_zipcodes[zipcode] - min_value)*100/distance) for zipcode in filtered_zipcodes.keys()}
+        return normalized_scores
 
 @app.before_request
 def before_request():
@@ -129,7 +148,7 @@ def home():
       min_price = int(min_price)
       max_price = int(max_price)
       house_type = filters.get("HouseTypeSelect")
-      input_zipcode = int(filters.get("ZipInput"))
+      input_zipcode = filters.get("ZipInput")
       parameter_input = {'crime_index':int(filters.get("crime_index")), 'coffeeshops':int(filters.get("coffeeshops")), 'poverty_rate':int(filters.get("poverty_rate")), 'avg_temperature':int(filters.get("avg_temperature")), 'earthquake_index':int(filters.get("earthquake_index"))}
       personal_scores = normalized_zips(CalcPersScore(parameter_input))
       if filters.get("SchoolRadio") == None:
