@@ -169,6 +169,7 @@
     <th>Personal Score</th>
     <th>Investment Score</th>
     <th>Average Score</th>
+    <th>For Sale Link</th>
   </tr>
   </thead>
   <tbody>
@@ -179,12 +180,13 @@
     <td>{{row[3]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
     <td>{{filtered_pers_zips[row[0]]}}</td>
-    <td>{{row[4]}}
+    <td>{{row[4]}}</td>
      {% if similarity_scores[row[0]] %} 
     <td>{{ ((row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4) | round | int}}</td>
     {% else %}
     <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
     {% endif %}
+    <td><a href={{row[5]}} target="_blank">Click Here</a></td>
   </tr>
     {% endfor %}
   </tbody>
