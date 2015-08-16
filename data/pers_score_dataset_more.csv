@@ -1,4 +1,4 @@
-ZIP, avg_precipitation, N_avg_precipitation, renter_occupied, N_renter_occupied, earthquake_index, N_earthquake_index, pop_growth_rate, N_pop_growth_rate, avg_temperature, N_avg_temperature, poverty_Rate, N_poverty_Rate, parks, N_parks, crime_index, N_crime_index, female_labor, N_female_labor, coffeeshops, N_coffeeshops, restaurants, N_restaurants
+ZIP, avg_precipitation, N_avg_precipitation, renter_occupied, N_renter_occupied, earthquake_index, N_earthquake_index, pop_growth_rate, N_pop_growth_rate, avg_temperature, N_avg_temperature, poverty_rate, N_poverty_rate, parks, N_parks, crime_index, N_crime_index, female_labor, N_female_labor, coffeeshops, N_coffeeshops, restaurants, N_restaurants
 94548, 13.22, 0.77, 0.22, 77.80, 10.64, 91.56, 0.82, 90.08, 61.50, 85.92, 29.60, 41.27, 5.00, 12.50, 0.00, 100.00, 0.50, 49.70, 0.00, 0.00, 13.00, 32.50
 95212, NA, NA, 0.43, 56.70, 4.57, 97.92, 0.20, 94.81, NA, NA, 11.10, 77.98, 2.00, 5.00, 4003.00, 34.01, 0.57, 56.90, 0.00, 0.00, 0.00, 0.00
 95625, 25.87, 29.46, NA, NA, NA, NA, NA, NA, 62.07, 92.12, 0.00, 100.00, 6.00, 15.00, NA, NA, NA, NA, 0.00, 0.00, 20.00, 50.00
