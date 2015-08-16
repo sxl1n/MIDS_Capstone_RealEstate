@@ -112,9 +112,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-3" for="param2">Coffeeshops</label>
+                            <label class="col-md-3" for="param2">Restaurants</label>
                             <div class="col-md-6">
-                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("coffeeshops") or '50'}} name="coffeeshops"/>
+                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("restaurants") or '50'}} name="restaurants"/>
                             </div>
                         </div>
 
@@ -167,8 +167,9 @@
     <th>Quality Score</th>
     <th>Similarity Score</th>
     <th>Personal Score</th>
-    <th>Appreciation Score</th>
+    <th>Investment Score</th>
     <th>Average Score</th>
+    <th>For Sale Link</th>
   </tr>
   </thead>
   <tbody>
@@ -179,12 +180,13 @@
     <td>{{row[3]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
     <td>{{filtered_pers_zips[row[0]]}}</td>
-    <td>{{row[4]}}
+    <td>{{row[4]}}</td>
      {% if similarity_scores[row[0]] %} 
     <td>{{ ((row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4) | round | int}}</td>
     {% else %}
     <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
     {% endif %}
+    <td><a href={{row[5]}} target="_blank">Click Here</a></td>
   </tr>
     {% endfor %}
   </tbody>
