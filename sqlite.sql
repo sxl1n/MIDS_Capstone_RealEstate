@@ -2,6 +2,7 @@ drop table entries;
 create table entries (
   id integer primary key ,
   zipcode integer not null,
+  city text,
   gsid integer,
   school_name text,
   grade_range text,

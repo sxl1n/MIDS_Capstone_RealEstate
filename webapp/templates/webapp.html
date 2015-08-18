@@ -163,12 +163,14 @@
   <thead>
   <tr>
     <th>Zipcode</th>
+    <th>City</th>
     <th>Median Price</th>
     <th>Quality Score</th>
     <th>Similarity Score</th>
     <th>Personal Score</th>
     <th>Investment Score</th>
     <th>Average Score</th>
+    <th>Price Chart</th>
     <th>For Sale Link</th>
   </tr>
   </thead>
@@ -176,6 +178,7 @@
     {% for row in rows %}
   <tr>
     <td>{{row[0]}}</td>
+    <td>{{row[6]}}</td>
     <td>{{row[1]}}</td>
     <td>{{row[3]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
@@ -186,6 +189,7 @@
     {% else %}
     <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
     {% endif %}
+    <td><a href={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}} target="_blank">Click Here</a></td>
     <td><a href={{row[5]}} target="_blank">Click Here</a></td>
   </tr>
     {% endfor %}

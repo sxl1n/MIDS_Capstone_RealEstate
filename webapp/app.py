@@ -162,7 +162,7 @@ def home():
         # filtered_pers_zips = normalized_zips(filtered_pers_zips)
         similarity_scores = normalized_zips(zip_distance(input_zipcode))
         # query = "select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer) from entries where school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, rating_min, house_type, min_price, max_price)
-        rows = g.db.execute("select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer), for_sale_link from entries where school_ratings >= ? and %s between ? and ? group by 1,2,4,6" % (house_type, house_type), [rating_min, min_price, max_price]).fetchall()
+        rows = g.db.execute("select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer), for_sale_link, city from entries where school_ratings >= ? and %s between ? and ? group by 1,2,4,6,7" % (house_type, house_type), [rating_min, min_price, max_price]).fetchall()
         # qual_scores = {int(row[0]): int(row[3]) for row in rows}
         # qual_scores = normalized_zips(qual_scores)
         # app_scores = {int(row[0]): int(row[4]) for row in rows}
@@ -178,7 +178,7 @@ def home():
         # filtered_pers_zips = normalized_zips(filtered_pers_zips)
         similarity_scores = normalized_zips(zip_distance(input_zipcode))
         # query = "select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer) from entries where grade_level like %s and school_ratings >= %d and %s between %d and %d group by 1,2,4" % (house_type, school_level, rating_min, house_type, min_price, max_price)
-        rows = g.db.execute("select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer), for_sale_link from entries where grade_level like ? and school_ratings >= ? and %s between ? and ? group by 1,2,4,6" % (house_type, house_type), ['%' + school_level + '%', rating_min, min_price, max_price]).fetchall()
+        rows = g.db.execute("select zipcode, %s, avg(school_ratings), cast(round(score) as integer), cast(round(app_score) as integer), for_sale_link, city from entries where grade_level like ? and school_ratings >= ? and %s between ? and ? group by 1,2,4,6,7" % (house_type, house_type), ['%' + school_level + '%', rating_min, min_price, max_price]).fetchall()
         # qual_scores = {int(row[0]): int(row[3]) for row in rows}
         # qual_scores = normalized_zips(qual_scores)
         # app_scores = {int(row[0]): int(row[4]) for row in rows}
