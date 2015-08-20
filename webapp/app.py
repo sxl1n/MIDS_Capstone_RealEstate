@@ -185,6 +185,13 @@ def home():
         # app_scores = normalized_zips(app_scores)
         return render_template('webapp.html', filters=filters, rows=rows, filtered_pers_zips=filtered_pers_zips, similarity_scores=similarity_scores)
 
+@app.context_processor
+def utility_processor():
+    def format_price(amount):
+        return u'${0:,.0f}'.format(amount)
+    return dict(format_price=format_price)
+
+
 if __name__ == '__main__':
     ReadPersScores('pers_score_dataset.csv')
     fileName = "merged_fat.csv"
