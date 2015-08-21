@@ -1,0 +1,16 @@
+Added:
+CSS - static/css/datasci-w210.css
+JS  - static/css/datasci-w210.js
+266 thumb nail images: PriceChart/thumb_price_trend*.png
+	* Please copy these thumb-nail image file to folder static/img/PriceChart/... within webapp folder.
+
+Changed:
+	templates/webapp.html (Diff between your version)
+	templates/backbone.html
+
+
+What changed?
+	Removed column "Click Here" for zillow link and made city column clickable to take to zillow site. Less clutter.
+	Instead of "Click Here" for price trend made that into a clickable button with thumb-nail image for the price trend.
+		Clicking the button brings up a pop-up chart that can be closed by pressing ESC or clicking the close-button.
+

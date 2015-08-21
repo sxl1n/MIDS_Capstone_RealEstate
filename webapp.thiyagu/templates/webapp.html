@@ -1,0 +1,290 @@
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+      <div class="row">
+            <div style="margin-top:-20px" class="row">
+                <div style="margin-top: 20px" class="jumbotron">
+                    <h1>Welcome to Neighborhood Search</h1>
+<!--                     <div class="row">
+                        <div style="margin-right: 5px; margin-left: 20px;" class="thumbnail col-md-1"><img src="{{ url_for('static', filename='img/Search.jpg') }}" alt="some_image_placeholder"></div>
+                    </div> -->
+                    <p>This is the capstone project created by Judd, Sharon, and Thiyagu, for the UC Berkeley Master of Information and Data Science program. For more information, please visit the <a href="/about.html">About</a> Page.</p>
+                </div>               
+            </div> <!-- END INDIVIDUAL IMAGE ROW -->
+    </div> <!-- END MAIN PAGE ROW -->
+    <div class="row">
+            <div class="col-md-12">
+            <div id="searchpanel" class="panel panel-default">
+                <div class="panel-heading"><h3 class="panel-title">Real Estate Search</h3></div>
+                <div class="panel-body">
+                    <form id="query_form" class="form-horizontal" action="/">
+                    <div class="column">
+                    <div class="col-md-6">
+                        
+                        <div class="form-group">
+                            <label class="col-md-12" for="singleselectprice">Price Range</label>
+                            <select id="singleselectprice" class="selectpicker col-md-4" name="PriceSelect">
+                                <option value="100000-399999" {{"selected=selected" if filters.get("PriceSelect") == "100000-399999"}}>$100,000-$399,999</option>
+                                <option value="400000-499999" {{"selected=selected" if filters.get("PriceSelect") == "400000-499999"}}>$400,000-$499,999</option>
+                                <option value="500000-599999" {{"selected=selected" if filters.get("PriceSelect") == "500000-599999"}}>$500,000-$599,999</option>
+                                <option value="600000-699999" {{"selected=selected" if filters.get("PriceSelect") == "600000-699999"}}>$600,000-$699,999</option>
+                                <option value="700000-799999" {{"selected=selected" if filters.get("PriceSelect") == "700000-799999"}}>$700,000-$799,999</option>
+                                <option value="800000-999999" {{"selected=selected" if filters.get("PriceSelect") == "800000-999999"}}>$800,000-$999,999</option>
+                                <option value="1000000-1199999" {{"selected=selected" if filters.get("PriceSelect") == "1000000-1199999"}}>$1,000,000-$1,199,999</option>
+                                <option value="1200000-1499999" {{"selected=selected" if filters.get("PriceSelect") == "1200000-1499999"}}>$1,200,000-$1,499,999</option>
+                                <option value="1500000-1999999" {{"selected=selected" if filters.get("PriceSelect") == "1500000-1999999"}}>$1,500,000-$1,999,999</option>
+                                <option value="2000000-100000000" {{"selected=selected" if filters.get("PriceSelect") == "2000000-100000000"}}>$2,000,000-$100,000,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-12" for="singleselecttype">House Type</label>
+                            <select id="singleselecttype" class="selectpicker col-md-4" name="HouseTypeSelect">
+                                <option value="median_sale_price" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_sale_price"}}>All</option>
+                                <option value="median_condo" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_condo"}}>Condo</option>
+                                <option value="median_2_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_2_bedroom"}}>2-Bedroom</option>
+                                <option value="median_3_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_3_bedroom"}}>3-Bedroom</option>
+                                <option value="median_4_bedroom" {{"selected=selected" if filters.get("HouseTypeSelect") == "median_4_bedroom"}}>4-Bedroom</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="gradeselect">Grade of School</label>
+                            <div class="col-md-12">
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio1" value="Elementary" {{"checked=checked" if filters.get("SchoolRadio") == "Elementary"}}>Elementary School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio2" value="Middle" {{"checked=checked" if filters.get("SchoolRadio") == "Middle"}}>Middle School
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="SchoolRadio" id="inlineRadio3" value="High" {{"checked=checked" if filters.get("SchoolRadio") == "High"}}>High School
+                              </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12" for="slider">Minimum School Rating</label>
+                            <div class="col-md-10">
+                                <b>1&nbsp;&nbsp;&nbsp;</b><input id="slider" type="text" class="span2" value="" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value={{filters.get("SchoolRatingSlider") or '0'}} name="SchoolRatingSlider"/><b>&nbsp;&nbsp;&nbsp;10</b>
+                            </div>
+                        </div>
+                        <br>
+
+                          <h4 style="color: #337ab7">Similarity Score</h4> 
+                          <div class="form-group">
+                            <label class="col-md-12" for="inputZipcode">Input Current Zipcode</label>
+                            <div class="col-md-4">
+                            <input type="number" class="form-control" id="inputZipcode" placeholder="Zipcode" value={{filters.get("ZipInput")}} min="0" data-bind="value:replyNumber" name="ZipInput">
+                            </div>
+                          </div>
+
+<!--                         <div class="form-group">
+                            <label class="col-md-12" for="currentzipcode">Do you like your current zipcode?</label>
+                            <div class="col-md-12">
+                              <label class="radio-inline">
+                                <input type="radio" name="ZipcodeRadio" id="inlineRadio1" value="Yes">Yes
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="ZipcodeRadio" id="inlineRadio2" value="No">No
+                              </label>
+                            </div>
+                        </div> -->
+                        </div>
+                        </div>
+
+                    <div class="column">
+                    <div id="parameters-section" class="col-md-6">
+
+                        <h4 style="color: #337ab7">Personal Score</h4> 
+                        <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <label class="col-md-1">Least Preferred</label>
+                            <label class="col-md-7"></label>
+                            <label class="col-md-1">Most Preferred</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3" for="param1">Safety</label>
+                            <div class="col-md-6">
+                                <input id="param1" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("crime_index") or '50'}} name="crime_index"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3" for="param2">Restaurants</label>
+                            <div class="col-md-6">
+                                <input id="param2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("restaurants") or '50'}} name="restaurants"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3" for="param3">Lower Poverty Rate</label>
+                            <div class="col-md-6">
+                                <input id="param3" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("poverty_rate") or '50'}} name="poverty_rate"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3" for="param4">Higher Average Temperature</label>
+                            <div class="col-md-6">
+                                <input id="param4" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("avg_temperature") or '50'}} name="avg_temperature"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3" for="param5">Earthquake Index</label>
+                            <div class="col-md-6">
+                                <input id="param5" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-tooltip="hide" data-slider-value={{filters.get("earthquake_index") or '50'}} name="earthquake_index"/>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                          <a href="/">
+                            <button id="query_button" type="submit" style="margin-right: 100px" class="btn btn-primary col-md-2 pull-right">Search</button>
+                            <button id="refresh" type="button" style="margin-right:5px" class="btn btn-danger pull-right col-md-2" aria-label="Reset">Reset
+<!--                               <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> -->
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+      </div>
+
+<div id="chart-pane" class="price-chart">
+    <table id="popup">
+        <thead>
+        <tr> <td> <button> Close </button> </td> <td> Or press ESC to close </td> </tr>
+        </thead>
+        <tbody>
+            <td colspan="2"> </td>
+        </tbody>
+    </table>
+</div>
+
+  <table id="myTable" class="tablesorter table">
+  <thead>
+  <tr>
+    <th>Zipcode</th>
+    <th>City</th>
+    <th>Median Price</th>
+    <th>Quality Score</th>
+    <th>Similarity Score</th>
+    <th>Personal Score</th>
+    <th>Investment Score</th>
+    <th>Average Score</th>
+    <th>Price Chart</th>
+    <!-- th>For Sale Link</th -->
+  </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+  <tr>
+    <td>{{row[0]}}</td>
+    <!-- td>{{row[6]}}</td -->
+    <td><a href={{row[5]}} target="_blank">{{row[6]}}</a></td>
+    <td>{{format_price(row[1])}}</td>
+    <td>{{row[3]}}</td>
+    <td>{{similarity_scores[row[0]]}}</td>
+    <td>{{filtered_pers_zips[row[0]]}}</td>
+    <td>{{row[4]}}</td>
+     {% if similarity_scores[row[0]] %} 
+    <td>{{ ((row[3] + row[4] + similarity_scores[row[0]] + filtered_pers_zips[row[0]])/4) | round | int}}</td>
+    {% else %}
+    <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
+    {% endif %}
+    <td><button name={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}}><img src={{'static/img/PriceChart/thumb_price_trend_'+row[0]|string+'.png'}}></button></td>
+    <!-- td><a href={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}} target="_blank">Click Here</a></td -->
+    <!-- td><a href={{row[5]}} target="_blank">Click Here</a></td -->
+  </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+
+
+
+{% endblock %}
+
+{% block footer %}
+    <script>
+        var slider = null;
+        $(document).ready(function() {
+            slider = new Slider('#slider', {});
+        });
+
+        var param1 = null;
+        $(document).ready(function() {
+            param1 = new Slider('#param1', {});
+        });
+
+        var param2 = null;
+        $(document).ready(function() {
+            param2 = new Slider('#param2', {});
+        });
+
+        var param3 = null;
+        $(document).ready(function() {
+            param3 = new Slider('#param3', {});
+        });
+
+        var param4 = null;
+        $(document).ready(function() {
+            param4 = new Slider('#param4', {});
+        });
+
+        var param5 = null;
+        $(document).ready(function() {
+            param5 = new Slider('#param5', {});
+        });
+
+
+
+        $(function() {
+            $("button#refresh").click(function() {     
+                $('.selectpicker').selectpicker('deselectAll');
+            });
+        });
+
+        $(document).ready(function() { 
+        $("#myTable").tablesorter(); 
+        }); 
+
+
+    </script>
+    <style type="text/css">
+      #parameters-section .slider-horizontal {width: 350px};
+
+      th.header {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      th.header.headerSortUp { 
+        background-image: url(/static/img/asc.gif); 
+        background-color: #8dbdd8; 
+      } 
+      th.header.headerSortDown { 
+        background-image: url(/static/img/desc.gif); 
+        background-color: #8dbdd8; 
+      } 
+      th.header { 
+        background-image: url(/static/img/bg.gif); 
+        cursor: pointer; 
+        font-weight: bold; 
+        background-repeat: no-repeat; 
+        background-position: center right; 
+        padding-left: 20px; 
+        border-right: 1px solid #8dbdd8; 
+        margin-left: -1px; 
+      } 
+
+    </style>
+	<script type="text/javascript" src="/static/js/datasci-w210.js"> </script>
+{% endblock %}
