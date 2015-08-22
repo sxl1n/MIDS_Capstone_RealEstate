@@ -36,22 +36,68 @@
 </div>
 
 <div class="row">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<p>
 <!-- some text here -->
+<h1>Similarity Score</h1>
+<p>Have you ever had to relocate?  Finding a new place to call home can be a daunting challenge, especially if you are unfamiliar with the new location.  Often the best resources are friends and family in the area that know you well, and can help guide you to an area that suits your preferences.  However, you may not always have these resources.  Input from people is also subject to missing information and bias.  Eventually, you will be able to find the best location that "feels" like home, but it may take some time.  What if a system were able to use data on where you have lived before to make a recommendation about the where you should look in the new area?  
+</p><p>
+Popular internet businesses such as Netflix and Amazon rely upon recommender systems to analyze your preferences for products you are familiar with and recommend products you haven't tried, but would likely enjoy.  Recommender systems often use the concept of collaborative filtering.  <a href=https://en.wikipedia.org/wiki/Item-item_collaborative_filtering target="_blank">Item-item collaborative filtering</a> is the pattern that focuses on the similarity between items and a person's ratings of those items.  For a real-estate recommender system, zip codes can be thought of as the item, and the ratings can come from zip codes that the user has enjoyed living in before.
+<p></p>
+<h2>Data</h2>
+<p>The first step in creating this recommender system is choosing the data that will define a zip code and allow it to be compared effectively with other zip codes.  The data we chose included both demographic and business data.
 </p>
-<p>
-<!-- some text here -->
+<h3><a href="https://www.census.gov/programs-surveys/acs/data.html">American Community 5-Year Survey 2013</a></h3>
+<p>This is a very comprehensive data set provided by the United States Census Bureau that has detailed demographic information at the zip code level.  The categories selected for our dataset are:<br><br>
+	<b>People</b>
+  <ul>
+		<li>Basic Count</li>
+		<li>Age & Sex</li>
+		<li>Age Group</li>
+		<li>Disability</li>
+		<li>Education</li>
+		<li>Employment</li>
+		<li>Income & Earnings</li>
+		<li>Insurance Coverage</li>
+		<li>Language</li>
+		<li>Marital & Fertility Status</li>
+		<li>Origins</li>
+		<li>Population Change</li>
+		<li>Poverty</li>
+		<li>Veterans</li>
+   </ul><br>
+	<b>Housing</b>
+  <ul>
+		<li>Basic Count</li>
+		<li>Financial Characteristic</li>
+		<li>Occupancy Characteristic</li>
+		<li>Physical Characteristic</li><br>
+   </ul>
+</p><p>
+The data from this source consisted of 8289 features for 33,120 zip codes.
 </p>
+<h3><a href="http://www.census.gov/econ/cbp/index.html">Zip Code Business Patterns 2012</a></h3>
+<p>This is another dataset provided by the US Census that categories economic data by industry at the zip code level.  The series includes the number of establishments as well as employment counts grouped by ranges of business sizes.  We selected just the number of establishments out of this data due to challenges in transforming it for our purposes.  In the future, the employment counts could be added in if it was determined it could improve our similarity metric.  The business counts are categories by the list of industries specified by the <a href="http://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012">NAICS</a>.  This classification structure includes specific industries grouped by high level sectors.  For this dataset, we used the specific industries.
+</p><p>
+The data from this source consisted of 980 features for 38,793 zip codes
+</p><p>
+The final merged dataset contained 9266 features for 33,120 zip codes.
+</p>
+<h2>Calculations</h2>
+<p>Recommender systems are dependent upon a similarity function.  This is a means to quantify how similar items are to one another in a specific feature-space representing the items.  Usually, a formula for distance is chosen for the calculation, and then the inverse is taken to provide the similarity value.  While there are many different types of distance, Euclidean distance is best when the features are numeric.  Our project allows the similarity to be calculated for a reference zip code provided by the user against all the zip codes in the target location (which is the San Francisco Bay Area for our prototype).  This <a href="http://blog.yhathq.com/posts/recommender-system-in-r.html">yhat blog post</a> served as a guide in programming our recommendation functions.</p><p>
+
+Another means of quantifying similarity is by using an unsupervised clustering algorithm that groups similar items with one another within a specific feature-space representing the items.  To evaluate our feature-space, the k-Means algorithm was used with a parameter of 8 clusters to see how zip codes in the San Francisco Bay Area were grouped together.  Someone familiar with the area would see that overall the clusters seem valid, but there are some differences that could prompt investigations that may reveal ways to refine the features.  
+</p>
+<img src="img/bay_area_clusters.png" alt="Bay Area Cluster Map" style="display: block; margin-left: auto; margin-right: auto;">
+<h2>Evaluation</h2>
+<p>The calculation of a similarity score for zip codes is a way to quantify a subjective measure.  The target is to capture the essence of "home" in a numeric fashion.  The only way to validate the calculation is to evaluate it with people who are familiar with two areas.  Project team member Judd Heckman has lived most of his life in Scottsdale, AZ, but resided in San Francisco for a couple of years.  While there, he was looking into which part of the bay area to purchase a home and found it a non-trivial task.  Taking his Phoenix area zip code as input to the recommender system resulted in the following map showing the strongest similarities in the bay area.  These findings correspond with his own organic conclusions that Contra Costa county felt most like home, particularly around Walnut Creek and Danville.  The findings also suggest looking into Mill Valley and San Raphael, and if the peninsula had to be considered, Redwood City.  
+</p>
+<img src="img/bay_area_85254.png" alt="Bay Area Cluster Map" style="display: block; margin-left: auto; margin-right: auto;">
+<p></p>
 <p class="lead">
-For a more information about the overall project, and future plans, please check out our <a href="https://docs.google.com/presentation/d/16OW8bvGSCxpqEQyHLzDDbvIPjukn90Nw2MMx9NpyGo4/edit?usp=sharing" target="_blank">capstone presentation</a>.
+For more information about the overall project and future plans, please check out our <a href="https://docs.google.com/presentation/d/16OW8bvGSCxpqEQyHLzDDbvIPjukn90Nw2MMx9NpyGo4/edit?usp=sharing" target="_blank">capstone presentation</a>.
 </p>
-</div>
 </div>
 
 </div>
-    <div class="container" id="footer">
-    </div>
-  </body>
+<div class="container" id="footer"></div>
+</body>
 </html>
