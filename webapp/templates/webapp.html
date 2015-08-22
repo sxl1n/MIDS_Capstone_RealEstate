@@ -159,6 +159,17 @@
             </div>
       </div>
 
+<div id="chart-pane" class="price-chart">
+    <table id="popup">
+        <thead>
+        <tr> <td> <button> Close </button> </td> <td> Or press ESC to close </td> </tr>
+        </thead>
+        <tbody>
+            <td colspan="2"> </td>
+        </tbody>
+    </table>
+</div>
+
   <table id="myTable" class="tablesorter table">
   <thead>
   <tr>
@@ -171,14 +182,15 @@
     <th>Investment Score</th>
     <th>Average Score</th>
     <th>Price Chart</th>
-    <th>For Sale Link</th>
+    <!-- th>For Sale Link</th -->
   </tr>
   </thead>
   <tbody>
     {% for row in rows %}
   <tr>
     <td>{{row[0]}}</td>
-    <td>{{row[6]}}</td>
+    <!-- td>{{row[6]}}</td -->
+    <td><a href={{row[5]}} target="_blank">{{row[6]}}</a></td>
     <td>{{format_price(row[1])}}</td>
     <td>{{row[3]}}</td>
     <td>{{similarity_scores[row[0]]}}</td>
@@ -189,8 +201,9 @@
     {% else %}
     <td>{{ ((row[3] + row[4] + filtered_pers_zips[row[0]])/3) | round | int}}</td>
     {% endif %}
-    <td><a href={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}} target="_blank">Click Here</a></td>
-    <td><a href={{row[5]}} target="_blank">Click Here</a></td>
+    <td><button name={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}}>Click Here</button></td>
+    <!-- td><a href={{'static/img/PriceChart/price_trend_'+row[0]|string+'.png'}} target="_blank">Click Here</a></td -->
+    <!-- td><a href={{row[5]}} target="_blank">Click Here</a></td -->
   </tr>
     {% endfor %}
   </tbody>
@@ -273,4 +286,5 @@
       } 
 
     </style>
+  <script type="text/javascript" src="/static/js/datasci-w210.js"> </script>
 {% endblock %}
